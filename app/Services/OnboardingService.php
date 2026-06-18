@@ -1,0 +1,102 @@
+<?php
+
+namespace App\Services;
+
+use App\Contracts\IOnboardingService;
+use App\Contracts\IFileUploadService;
+use App\Models\Marketplace\Shop;
+use App\Models\Profiles\BabysitterProfile;
+use App\Models\Profiles\DoctorProfile;
+use App\Models\User;
+use Illuminate\Support\Str;
+
+class OnboardingService implements IOnboardingService
+{
+    public function __construct(
+        private IFileUploadService $fileUpload,
+    ) {}
+
+    public function saveBabysitter(string $userId, array $data): BabysitterProfile
+    {
+        if (isset($data['profile_photo'])) {
+            $data['avatar'] = $this->fileUpload->save($data['profile_photo'], 'avatars');
+            unset($data['profile_photo']);
+        }
+        if (isset($data['experience'])) {
+            $data['bio'] = $data['experience'];
+            unset($data['experience']);
+        }
+        unset($data['full_name'], $data['email'], $data['phone'], $data['city'], $data['dob'],
+              $data['cnic_front'], $data['cnic_back'], $data['police_clearance'], $data['training_cert']);
+        return BabysitterProfile::create(array_merge($data, ['user_id' => $userId]));
+    }
+
+    public function saveShopOwner(string $userId, array $data): Shop
+    {
+        if (isset($data['shop_logo'])) {
+            $data['logo'] = $this->fileUpload->save($data['shop_logo'], 'logos');
+            unset($data['shop_logo']);
+        }
+        if (isset($data['shop_banner'])) {
+            $data['banner'] = $this->fileUpload->save($data['shop_banner'], 'banners');
+            unset($data['shop_banner']);
+        }
+        if (isset($data['shop_name'])) {
+            $data['name'] = $data['shop_name'];
+            $data['slug'] = Str::slug($data['shop_name']) . '-' . $userId;
+            unset($data['shop_name']);
+        }
+        if (isset($data['shop_description'])) {
+            $data['description'] = $data['shop_description'];
+            unset($data['shop_description']);
+        }
+        if (isset($data['shop_address'])) {
+            $data['contact_info'] = $data['shop_address'];
+            unset($data['shop_address']);
+        }
+        unset($data['full_name'], $data['email'], $data['phone'], $data['city'], $data['profile_photo'],
+              $data['business_license'], $data['categories']);
+        return Shop::updateOrCreate(['user_id' => $userId], $data);
+    }
+
+    public function saveDoctor(string $userId, array $data): DoctorProfile
+    {
+        if (isset($data['profile_photo'])) {
+            $data['profile_photo'] = $this->fileUpload->save($data['profile_photo'], 'doctor-photos');
+        }
+        if (isset($data['clinic_name'])) {
+            $data['hospital'] = $data['clinic_name'];
+            unset($data['clinic_name']);
+        }
+        if (!isset($data['license_number']) && isset($data['pmdc_number'])) {
+            $data['license_number'] = $data['pmdc_number'];
+        }
+        unset($data['full_name'], $data['email'], $data['phone'], $data['city'],
+              $data['years_experience'], $data['clinic_address'],
+              $data['medical_license'], $data['pmdc_cert'], $data['cv']);
+        return DoctorProfile::create(array_merge($data, ['user_id' => $userId]));
+    }
+
+    public function saveParent(string $userId, array $data): void
+    {
+        $user = User::findOrFail($userId);
+        $updateData = [];
+
+        if (isset($data['full_name'])) {
+            $updateData['name'] = $data['full_name'];
+        }
+        if (isset($data['phone'])) {
+            $updateData['phone'] = $data['phone'];
+        }
+        if (isset($data['city'])) {
+            $updateData['city'] = $data['city'];
+        }
+        if (isset($data['profile_photo'])) {
+            $updateData['avatar'] = $this->fileUpload->save($data['profile_photo'], 'avatars');
+        }
+
+        if (!empty($updateData)) {
+            $user->update($updateData);
+        }
+    }
+}

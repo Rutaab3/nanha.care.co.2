@@ -1,0 +1,128 @@
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 28px;
+}
+
+.blog-card {
+  background: white;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.blog-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.blog-card .body {
+  padding: 20px;
+}
+
+.blog-card .category-badge {
+  display: inline-block;
+  background: var(--sky-blue);
+  color: white;
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 11px;
+  margin-bottom: 8px;
+}
+
+.blog-card .title {
+  font-family: Poppins, sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.blog-card .excerpt {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.blog-card .meta {
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 12px;
+}
+
+.article-content {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--dark-text);
+}
+
+.article-content h2 {
+  font-family: Poppins, sans-serif;
+  font-weight: 700;
+  margin-top: 40px;
+  margin-bottom: 16px;
+}
+
+.article-content h3 {
+  font-family: Poppins, sans-serif;
+  font-weight: 600;
+  margin-top: 28px;
+}
+
+.article-content img {
+  width: 100%;
+  border-radius: var(--radius-sm);
+  margin: 20px 0;
+}
+
+.article-content blockquote {
+  border-left: 4px solid var(--sky-blue);
+  padding: 16px 20px;
+  background: #f0f8ff;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin: 24px 0;
+}
+
+.author-box {
+  background: white;
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin: 40px 0;
+}
+
+.author-box img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.author-box .name {
+  font-family: Poppins, sans-serif;
+  font-weight: 700;
+}
+
+.author-box .credentials {
+  font-size: 13px;
+  color: #888;
+}
+
+.comment-box {
+  background: white;
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  margin-bottom: 16px;
+}
+
+.comment-reply {
+  background: #f8f9fa;
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  margin-top: 12px;
+  border-left: 3px solid var(--mint-green);
+}

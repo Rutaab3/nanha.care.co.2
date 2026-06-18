@@ -1,0 +1,162 @@
+:root {
+  --sky-blue: #87CEEB;
+  --baby-pink: #FFB6C1;
+  --mint-green: #98D8C8;
+  --off-white: #FAF9F6;
+  --sunshine-yellow: #FFD700;
+  --dark-text: #2D3436;
+  --white: #FFFFFF;
+  --border: #e9ecef;
+  --shadow: 0 2px 12px rgba(0,0,0,0.08);
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+
+body {
+  background: var(--off-white);
+  color: var(--dark-text);
+  font-family: Nunito, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Poppins, sans-serif;
+}
+
+.btn-primary {
+  background: var(--sky-blue);
+  border: none;
+  color: #fff;
+  border-radius: var(--radius-sm);
+}
+
+.btn-primary:hover {
+  background: #6bb8d9;
+}
+
+.btn-pink {
+  background: var(--baby-pink);
+  border: none;
+  color: var(--dark-text);
+}
+
+.btn-pink:hover {
+  background: #f5a0ae;
+}
+
+.btn-mint {
+  background: var(--mint-green);
+  border: none;
+  color: var(--dark-text);
+}
+
+.btn-mint:hover {
+  background: #7fc9b6;
+}
+
+.section-padding {
+  padding: 80px 0;
+}
+
+.card {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: none;
+}
+
+.badge-verified {
+  background: var(--mint-green);
+  color: var(--dark-text);
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 11px;
+}
+
+.hero-section {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, var(--sky-blue), var(--mint-green));
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: white;
+}
+
+.feature-card {
+  text-align: center;
+  padding: 30px 20px;
+  border-radius: var(--radius);
+  background: white;
+  box-shadow: var(--shadow);
+}
+
+.step-number {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--sky-blue);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  margin: 0 auto 16px;
+}
+
+.babysitter-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.babysitter-card:hover {
+  transform: translateY(-4px);
+}
+
+.emergency-banner {
+  background: var(--baby-pink);
+  padding: 20px 0;
+  text-align: center;
+}
+
+.section-title {
+  font-family: Poppins, sans-serif;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+footer {
+  background: var(--dark-text);
+  color: #ccc;
+  padding: 60px 0 20px;
+}
+
+footer a {
+  color: #aaa;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: white;
+}
+
+.navbar-brand {
+  font-family: Poppins, sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--sky-blue);
+}
+
+@media (max-width: 767.98px) {
+  .hero-section {
+    min-height: 60vh;
+  }
+  .section-padding {
+    padding: 40px 0;
+  }
+  .feature-card {
+    padding: 20px 15px;
+  }
+}

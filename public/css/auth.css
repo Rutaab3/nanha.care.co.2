@@ -1,0 +1,135 @@
+.auth-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--sky-blue) 0%, var(--mint-green) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.auth-card {
+  background: white;
+  border-radius: var(--radius);
+  padding: 40px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+
+.auth-logo {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.auth-logo .brand {
+  font-family: Poppins, sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--sky-blue);
+}
+
+.auth-title {
+  font-family: Poppins, sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 4px;
+}
+
+.auth-subtitle {
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 28px;
+}
+
+.form-label {
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.form-control {
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  padding: 10px 14px;
+}
+
+.form-control:focus {
+  border-color: var(--sky-blue);
+  box-shadow: 0 0 0 3px rgba(135,206,235,0.2);
+}
+
+.btn-auth {
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.onboarding-page {
+  min-height: 100vh;
+  background: var(--off-white);
+  padding: 40px 20px;
+}
+
+.onboarding-card {
+  background: white;
+  border-radius: var(--radius);
+  padding: 40px;
+  max-width: 700px;
+  margin: 0 auto;
+  box-shadow: var(--shadow);
+}
+
+.progress-steps {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.progress-step {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.progress-step.active {
+  background: var(--sky-blue);
+  color: white;
+}
+
+.progress-step.done {
+  background: var(--mint-green);
+  color: white;
+}
+
+.progress-step.pending {
+  background: var(--border);
+  color: #888;
+}
+
+.specialization-pill input[type=checkbox] {
+  display: none;
+}
+
+.specialization-pill label {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 2px solid var(--border);
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+  margin: 4px;
+}
+
+.specialization-pill input:checked + label {
+  border-color: var(--sky-blue);
+  background: var(--sky-blue);
+  color: white;
+}
