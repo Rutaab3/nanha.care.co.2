@@ -4,7 +4,7 @@
 <div class="container py-4">
     <h2 class="fw-bold mb-4" style="color: var(--dark-text);"><i class="bi bi-credit-card"></i> Checkout</h2>
 
-    <form method="POST" action="{{ route('cart.checkout') }}">
+    <form method="POST" action="{{ route('checkout') }}">
         @csrf
         <div class="row g-4">
             <div class="col-md-7">
@@ -14,11 +14,11 @@
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <label class="form-label">Full Name</label>
-                                <input type="text" name="full_name" class="form-control" required>
+                                <input type="text" name="name" class="form-control" required>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label">Email</label>
-                                <input type="email" name="email" class="form-control" required>
+                                <input type="email" name="email" class="form-control">
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label">Phone</label>
@@ -66,14 +66,14 @@
                 <div class="card shadow-sm border-0 mb-4">
                     <div class="card-body">
                         <h5 class="fw-bold mb-3" style="color: var(--dark-text);">Order Summary</h5>
-                        @foreach($cartItems as $item)
+                        @foreach($cart as $item)
                         <div class="d-flex align-items-center gap-3 mb-3">
-                            <img src="{{ $item->product->images->first()->path ? asset('storage/' . $item->product->images->first()->path) : 'https://placehold.co/60x60?text=Product' }}" alt="{{ $item->product->name }}" style="width: 50px; height: 50px; object-fit: cover;" class="rounded">
+                            <img src="{{ $item['image'] ? asset('storage/' . $item['image']) : 'https://placehold.co/60x60?text=Product' }}" alt="{{ $item['name'] }}" style="width: 50px; height: 50px; object-fit: cover;" class="rounded">
                             <div class="flex-grow-1">
-                                <h6 class="mb-0 fw-semibold" style="font-size: 0.9rem;">{{ $item->product->name }}</h6>
-                                <small class="text-muted">Qty: {{ $item->quantity }}</small>
+                                <h6 class="mb-0 fw-semibold" style="font-size: 0.9rem;">{{ $item['name'] }}</h6>
+                                <small class="text-muted">Qty: {{ $item['qty'] }}</small>
                             </div>
-                            <span class="fw-semibold">Rs. {{ number_format($item->product->price * $item->quantity) }}</span>
+                            <span class="fw-semibold">Rs. {{ number_format($item['price'] * $item['qty']) }}</span>
                         </div>
                         @endforeach
                         <hr>

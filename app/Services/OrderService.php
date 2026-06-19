@@ -43,12 +43,13 @@ class OrderService implements IOrderService
 
             foreach ($data['items'] as $item) {
                 $product = Product::findOrFail($item['product_id']);
-                $lineTotal = $product->price * $item['qty'];
+                $unitPrice = $product->sale_price ?? $product->price;
+                $lineTotal = $unitPrice * $item['qty'];
                 $total += $lineTotal;
                 $items[] = [
                     'product_id' => $product->id,
                     'qty' => $item['qty'],
-                    'unit_price' => $product->price,
+                    'unit_price' => $unitPrice,
                     'total' => $lineTotal,
                 ];
             }

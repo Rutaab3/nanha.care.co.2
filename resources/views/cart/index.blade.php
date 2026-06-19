@@ -4,7 +4,7 @@
 <div class="container py-4">
     <h2 class="fw-bold mb-4" style="color: var(--dark-text);"><i class="bi bi-cart"></i> Shopping Cart</h2>
 
-    @if($cartItems->count() > 0)
+    @if(count($cart) > 0)
     <div class="row g-4">
         <div class="col-lg-8">
             <div class="table-responsive">
@@ -19,32 +19,33 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($cartItems as $item)
+                        @foreach($cart as $item)
                         <tr>
                             <td>
                                 <div class="d-flex align-items-center gap-3">
-                                    <img src="{{ $item->product->images->first()->path ? asset('storage/' . $item->product->images->first()->path) : 'https://placehold.co/80x80?text=Product' }}" alt="{{ $item->product->name }}" style="width: 60px; height: 60px; object-fit: cover;" class="rounded">
+                                    <img src="{{ $item['image'] ? asset('storage/' . $item['image']) : 'https://placehold.co/80x80?text=Product' }}" alt="{{ $item['name'] }}" style="width: 60px; height: 60px; object-fit: cover;" class="rounded">
                                     <div>
-                                        <h6 class="mb-0 fw-semibold">{{ $item->product->name }}</h6>
-                                        <small class="text-muted">{{ $item->product->category }}</small>
+                                        <h6 class="mb-0 fw-semibold">{{ $item['name'] }}</h6>
                                     </div>
                                 </div>
                             </td>
-                            <td>Rs. {{ number_format($item->product->price) }}</td>
+                            <td>Rs. {{ number_format($item['price']) }}</td>
                             <td>
                                 <div class="input-group input-group-sm" style="max-width: 120px;">
-                                    <form method="POST" action="{{ route('cart.update', $item->id) }}" class="d-flex align-items-center">
+                                    <form method="POST" action="{{ route('cart.update') }}" class="d-flex align-items-center">
                                         @csrf
-                                        <button type="button" class="btn btn-outline-secondary" onclick="this.parentNode.querySelector('input[name=quantity]').stepDown(); this.parentNode.submit();">-</button>
-                                        <input type="number" name="quantity" class="form-control text-center" value="{{ $item->quantity }}" min="1">
-                                        <button type="button" class="btn btn-outline-secondary" onclick="this.parentNode.querySelector('input[name=quantity]').stepUp(); this.parentNode.submit();">+</button>
+                                        <input type="hidden" name="product_id" value="{{ $item['product_id'] }}">
+                                        <button type="button" class="btn btn-outline-secondary" onclick="this.parentNode.querySelector('input[name=qty]').stepDown(); this.parentNode.submit();">-</button>
+                                        <input type="number" name="qty" class="form-control text-center" value="{{ $item['qty'] }}" min="1">
+                                        <button type="button" class="btn btn-outline-secondary" onclick="this.parentNode.querySelector('input[name=qty]').stepUp(); this.parentNode.submit();">+</button>
                                     </form>
                                 </div>
                             </td>
-                            <td class="fw-semibold">Rs. {{ number_format($item->product->price * $item->quantity) }}</td>
+                            <td class="fw-semibold">Rs. {{ number_format($item['price'] * $item['qty']) }}</td>
                             <td>
-                                <form method="POST" action="{{ route('cart.remove', $item->id) }}">
+                                <form method="POST" action="{{ route('cart.remove') }}">
                                     @csrf
+                                    <input type="hidden" name="product_id" value="{{ $item['product_id'] }}">
                                     <button type="submit" class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
                                 </form>
                             </td>
@@ -61,7 +62,7 @@
                     <h5 class="fw-bold mb-4" style="color: var(--dark-text);">Cart Summary</h5>
                     <div class="d-flex justify-content-between mb-2">
                         <span class="text-muted">Subtotal</span>
-                        <span class="fw-semibold">Rs. {{ number_format($total) }}</span>
+                        <span class="fw-semibold">Rs. {{ number_format($subtotal) }}</span>
                     </div>
                     <div class="d-flex justify-content-between mb-2">
                         <span class="text-muted">Shipping</span>
@@ -70,9 +71,9 @@
                     <hr>
                     <div class="d-flex justify-content-between mb-4">
                         <span class="fw-bold">Total</span>
-                        <span class="fw-bold fs-5" style="color: var(--dark-text);">Rs. {{ number_format($total) }}</span>
+                        <span class="fw-bold fs-5" style="color: var(--dark-text);">Rs. {{ number_format($subtotal) }}</span>
                     </div>
-                    <a href="{{ route('cart.checkout') }}" class="btn w-100 py-2 fw-semibold" style="background-color: var(--mint-green); color: var(--dark-text);">
+                    <a href="{{ route('checkout') }}" class="btn w-100 py-2 fw-semibold" style="background-color: var(--mint-green); color: var(--dark-text);">
                         <i class="bi bi-credit-card"></i> Proceed to Checkout
                     </a>
                 </div>

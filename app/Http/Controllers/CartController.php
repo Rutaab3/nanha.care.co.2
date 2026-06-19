@@ -105,9 +105,21 @@ class CartController extends Controller
             return redirect('/cart')->with('error', 'Cart is empty');
         }
 
+        $validated = $request->validated();
+
         $this->orderService->create([
-            'cart' => $cart,
-            'shipping' => $request->validated(),
+            'items' => $cart,
+            'shipping_address' => [
+                'name' => $validated['name'],
+                'email' => $validated['email'] ?? null,
+                'phone' => $validated['phone'],
+                'address' => $validated['address'],
+                'city' => $validated['city'],
+                'province' => $validated['province'] ?? null,
+                'postal_code' => $validated['postal_code'] ?? null,
+                'notes' => $validated['notes'] ?? null,
+            ],
+            'payment_method' => $validated['payment_method'],
         ], auth()->id());
 
         session()->forget('nanhacare_cart');

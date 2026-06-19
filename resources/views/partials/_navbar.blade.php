@@ -25,6 +25,9 @@
                 </li>
             </ul>
             <div class="d-flex align-items-center gap-2">
+                <a href="{{ route('cart.index') }}" class="btn position-relative btn-sm px-2" style="background: none; border: none; color: var(--dark-text);">
+                    <i class="bi bi-cart3 fs-5"></i>
+                </a>
                 @guest
                     <a href="{{ route('auth.login') }}" class="btn btn-outline-primary btn-sm px-3">Login</a>
                     <a href="{{ route('auth.register') }}" class="btn btn-primary btn-sm px-3" style="background-color: var(--sky-blue); border-color: var(--sky-blue);">Register</a>

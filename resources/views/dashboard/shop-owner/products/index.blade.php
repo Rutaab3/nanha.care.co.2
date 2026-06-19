@@ -66,7 +66,7 @@
                                 $statusColors = ['draft' => 'secondary', 'under_review' => 'warning', 'published' => 'success', 'rejected' => 'danger', 'archived' => 'light text-dark'];
                             @endphp
                             <span class="badge bg-{{ explode(' ', $statusColors[$product->status->value] ?? 'secondary')[0] }}">
-                                {{ ucfirst(str_replace('_', ' ', $product->status)) }}
+                                {{ $product->status->label() }}
                             </span>
                         </td>
                         <td>{{ $product->created_at->format('d M Y') }}</td>
@@ -87,7 +87,7 @@
                                         <i class="bi bi-archive"></i>
                                     </button>
                                 </form>
-                                <form method="POST" action="{{ route('shop-owner.products.delete', $product->id) }}" id="delete-product-{{ $product->id }}" class="d-inline">
+                                <form method="POST" action="{{ route('shop-owner.products.destroy', $product->id) }}" id="delete-product-{{ $product->id }}" class="d-inline">
                                     @csrf
                                     <button type="button" class="btn btn-sm btn-outline-danger" data-confirm-form="delete-product-{{ $product->id }}">
                                         <i class="bi bi-trash"></i>

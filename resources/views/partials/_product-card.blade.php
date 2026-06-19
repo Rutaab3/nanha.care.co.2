@@ -22,12 +22,9 @@
             @include('partials._star-rating', ['rating' => $product->avgRating])
         @endif
         <div class="mt-auto pt-2">
-            <form method="POST" action="{{ route('cart.add', $product->id) }}">
-                @csrf
-                <button type="submit" class="btn w-100" style="background-color: var(--mint-green); color: var(--dark-text);">
-                    <i class="bi bi-cart-plus me-1"></i>Add to Cart
-                </button>
-            </form>
+            <a href="{{ route('marketplace.detail', $product->id) }}" class="btn w-100" style="background-color: var(--sky-blue); color: var(--dark-text);">
+                <i class="bi bi-info-circle me-1"></i>Details
+            </a>
         </div>
     </div>
 </div>

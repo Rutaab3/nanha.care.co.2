@@ -23,6 +23,7 @@ class Product extends Model
         'weight',
         'is_featured',
         'status',
+        'published_at',
     ];
 
     protected $casts = [
@@ -32,6 +33,7 @@ class Product extends Model
         'is_featured' => 'boolean',
         'price' => 'decimal:2',
         'sale_price' => 'decimal:2',
+        'published_at' => 'datetime',
     ];
 
     public function shop()
@@ -47,5 +49,10 @@ class Product extends Model
     public function reviews()
     {
         return $this->hasMany(ProductReview::class);
+    }
+
+    public function averageRating()
+    {
+        return $this->reviews()->avg('rating') ?: 0;
     }
 }

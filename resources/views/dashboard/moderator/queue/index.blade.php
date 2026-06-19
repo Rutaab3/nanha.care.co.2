@@ -40,7 +40,7 @@
                             $item = $entry['item'];
                             $type = $entry['type'];
                             if ($type === 'product') {
-                                $submittedBy = $item->shop?->user?->name ?? 'Unknown';
+                                $submittedBy = $item->shop?->owner?->name ?? 'Unknown';
                                 $preview = Str::limit($item->name, 50);
                                 $category = $item->category?->value ?? 'N/A';
                             } else {

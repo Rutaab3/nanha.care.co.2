@@ -23,7 +23,7 @@ Route::get('/babysitters/{id}', [BabysittersController::class, 'profile'])->name
 Route::get('/marketplace', [MarketplaceController::class, 'index'])->name('marketplace.index');
 Route::get('/marketplace/product/{id}', [MarketplaceController::class, 'detail'])->name('marketplace.detail');
 
-Route::get('/shop/{slug}', [ShopController::class, 'public'])->name('shop.public');
+Route::get('/shop/{slug}', [ShopController::class, 'public'])->name('shop.show');
 
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/{slug}', [BlogController::class, 'detail'])->name('blog.detail');

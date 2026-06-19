@@ -15,20 +15,60 @@ git clone <repo-url> nanhacare
 cd nanhacare
 ```
 
-### 2. Install PHP dependencies
+### 2. Create required directories & config files
+
+Ensure the following directories exist (Laravel requires them for cache/sessions/logs):
+
+```bash
+mkdir storage\framework\views
+mkdir storage\framework\cache
+mkdir storage\framework\sessions
+mkdir storage\logs
+mkdir bootstrap\cache
+```
+
+If `config/view.php` is missing, create it with the following content:
+
+```php
+<?php
+
+return [
+    'paths' => [
+        resource_path('views'),
+    ],
+    'compiled' => storage_path('framework/views'),
+];
+```
+
+Or run this in **PowerShell**:
+
+```powershell
+@"
+<?php
+
+return [
+    'paths' => [
+        resource_path('views'),
+    ],
+    'compiled' => storage_path('framework/views'),
+];
+"@ | Out-File -Encoding utf8 config\view.php
+```
+
+### 3. Install PHP dependencies
 
 ```bash
 composer install --no-interaction
 ```
 
-### 3. Install NPM dependencies & build assets
+### 4. Install NPM dependencies & build assets
 
 ```bash
 npm install
 npm run build
 ```
 
-### 4. Configure .env
+### 5. Configure .env
 
 ```bash
 copy .env.example .env
@@ -49,14 +89,14 @@ ADMIN_NAME=Admin
 ADMIN_PASSWORD=admin123
 ```
 
-### 5. Generate app key & run migrations
+### 6. Generate app key & run migrations
 
 ```bash
 php artisan key:generate
 php artisan migrate --seed
 ```
 
-### 6. Storage link & start server
+### 7. Storage link & start server
 
 ```bash
 php artisan storage:link

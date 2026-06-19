@@ -15,10 +15,14 @@ class CheckoutRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:100',
+            'email' => 'nullable|email|max:255',
+            'phone' => 'required|regex:/^03[0-9]{9}$/',
             'address' => 'required|string|max:300',
             'city' => 'required|string',
-            'phone' => 'required|regex:/^03[0-9]{9}$/',
-            'payment_method' => 'required|in:cod,card',
+            'province' => 'nullable|string|max:100',
+            'postal_code' => 'nullable|string|max:20',
+            'notes' => 'nullable|string|max:500',
+            'payment_method' => 'required|in:cod,jazzcash',
         ];
     }
 }

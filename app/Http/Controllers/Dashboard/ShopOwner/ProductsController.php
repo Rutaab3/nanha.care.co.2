@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard\ShopOwner;
 
 use App\Contracts\IFileUploadService;
 use App\Contracts\IProductService;
+use App\Enums\ContentStatus;
 use App\Models\Marketplace\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\Products\CreateProductRequest;
@@ -31,6 +32,10 @@ class ProductsController
     public function store(CreateProductRequest $request)
     {
         $data = $request->validated();
+        $status = $request->input('action') === 'submit'
+            ? ContentStatus::UnderReview
+            : ContentStatus::Draft;
+        $data['status'] = $status;
         $userId = auth()->id();
         $images = [];
 
@@ -61,6 +66,10 @@ class ProductsController
     public function update(EditProductRequest $request, $id)
     {
         $data = $request->validated();
+        $status = $request->input('action') === 'submit'
+            ? ContentStatus::UnderReview
+            : ContentStatus::Draft;
+        $data['status'] = $status;
         $this->service->update($id, $data, auth()->id());
 
         return redirect()->route('shop-owner.products.index')
