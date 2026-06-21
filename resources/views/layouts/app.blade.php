@@ -8,16 +8,29 @@
     <link href="{{ asset('css/fonts.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/site.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/home.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/babysitters.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/cart.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/contact.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/onboarding.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/marketplace.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/shop.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/blog.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/errors.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/notifications.css') }}" rel="stylesheet">
     @stack('styles')
     <style>
         :root {
-            --sky-blue: #87CEEB;
-            --baby-pink: #FFB6C1;
-            --mint-green: #98D8C8;
-            --off-white: #FAF9F6;
-            --sunshine-yellow: #FFD700;
-            --dark-text: #2D3436;
+            --sky-blue: #7EB8DA;
+            --baby-pink: #F8B1C8;
+            --mint-green: #C6F3D3;
+            --off-white: #FFF9F2;
+            --sunshine-yellow: #FFE97F;
+            --slate-grey: #AAAAAA;
+            --dark-text: #555555;
             --white: #FFFFFF;
+            --navy: #3A5A7C;
         }
         body {
             font-family: 'Nunito', sans-serif;
@@ -31,11 +44,13 @@
         .text-baby-pink { color: var(--baby-pink); }
         .text-mint-green { color: var(--mint-green); }
         .text-sunshine-yellow { color: var(--sunshine-yellow); }
+        .text-slate-grey { color: var(--slate-grey); }
         .bg-sky-blue { background-color: var(--sky-blue); }
         .bg-baby-pink { background-color: var(--baby-pink); }
         .bg-mint-green { background-color: var(--mint-green); }
         .bg-off-white { background-color: var(--off-white); }
         .bg-sunshine-yellow { background-color: var(--sunshine-yellow); }
+        .bg-slate-grey { background-color: var(--slate-grey); }
     </style>
 </head>
 <body>
@@ -46,12 +61,17 @@
     @endif
 
     <main>
-        @yield('content')
+        <div id="skeletonPublic" class="d-none">@include('components.skeletons.public')</div>
+        <div id="skeletonAuth" class="d-none">@include('components.skeletons.auth')</div>
+        <div id="pageContent">
+            @yield('content')
+        </div>
     </main>
 
     @include('partials._footer')
 
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('js/site.js') }}"></script>
     @stack('scripts')
 </body>
 </html>

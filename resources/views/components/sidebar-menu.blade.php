@@ -2,11 +2,11 @@
     $role = auth()->user()->getRoleNames()[0] ?? 'parent';
     $currentRoute = request()->route()->getName();
 @endphp
-<nav class="sidebar-menu" style="width: 260px; background-color: var(--dark-text); color: #ccc; position: fixed; top: 0; left: 0; bottom: 0; overflow-y: auto; z-index: 1030; transition: transform 0.3s;">
-    <div class="p-3 border-bottom" style="border-color: #444 !important;">
+<nav class="sidebar-menu" style="width: 260px; background: linear-gradient(13deg, var(--sky-blue), var(--baby-pink)); color: var(--navy); position: fixed; top: 0; left: 0; bottom: 0; overflow-y: auto; z-index: 1030; transition: transform 0.3s;">
+    <div class="p-3 border-bottom" style="border-color: rgba(58,90,124,0.2) !important;">
         <a href="{{ route('home') }}" class="text-decoration-none d-flex align-items-center gap-2">
-            <i class="bi bi-heart-pulse-fill fs-4" style="color: var(--baby-pink);"></i>
-            <span class="fw-bold fs-5 text-white">NanhaCare</span>
+            <i class="bi bi-heart-pulse-fill fs-4" style="color: var(--navy);"></i>
+            <span class="fw-bold fs-5" style="color: var(--navy);">NanhaCare</span>
         </a>
     </div>
     <ul class="list-unstyled px-2 pt-2">

@@ -49,29 +49,13 @@
                             @forelse($recentActivity as $activity)
                                 <tr>
                                     <td>
-                                        @if($activity instanceof \App\Models\System\ModerationLog)
-                                            <span class="badge bg-info">Moderation</span>
-                                        @else
-                                            <span class="badge bg-warning text-dark">Role Assignment</span>
-                                        @endif
+                                        <span class="badge bg-{{ $activity['type'] === 'Moderation' ? 'info' : 'warning text-dark' }}">
+                                            {{ $activity['type'] }}
+                                        </span>
                                     </td>
-                                    <td>
-                                        @if($activity instanceof \App\Models\System\ModerationLog)
-                                            {{ ucfirst($activity->action) }} on {{ class_basename($activity->target_type) }} #{{ $activity->target_id }}
-                                        @else
-                                            Changed role to {{ $activity->new_role }}
-                                        @endif
-                                    </td>
-                                    <td>
-                                        @if($activity instanceof \App\Models\System\ModerationLog)
-                                            {{ $activity->moderator?->name ?? 'Unknown' }}
-                                        @else
-                                            {{ $activity->admin?->name ?? 'Unknown' }}
-                                        @endif
-                                    </td>
-                                    <td class="text-muted small">
-                                        {{ $activity instanceof \App\Models\System\ModerationLog ? $activity->submitted_at?->diffForHumans() : $activity->created_at->diffForHumans() }}
-                                    </td>
+                                    <td>{{ $activity['action'] }}</td>
+                                    <td>{{ $activity['user_name'] }}</td>
+                                    <td class="text-muted small">{{ $activity['timestamp']->diffForHumans() }}</td>
                                 </tr>
                             @empty
                                 <tr>

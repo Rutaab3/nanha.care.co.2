@@ -1,15 +1,17 @@
 :root {
-  --sky-blue: #87CEEB;
-  --baby-pink: #FFB6C1;
-  --mint-green: #98D8C8;
-  --off-white: #FAF9F6;
-  --sunshine-yellow: #FFD700;
-  --dark-text: #2D3436;
+  --sky-blue: #7EB8DA;
+  --baby-pink: #F8B1C8;
+  --mint-green: #C6F3D3;
+  --off-white: #FFF9F2;
+  --sunshine-yellow: #FFE97F;
+  --slate-grey: #AAAAAA;
+  --dark-text: #555555;
   --white: #FFFFFF;
-  --border: #e9ecef;
+  --border: #E0E0E0;
   --shadow: 0 2px 12px rgba(0,0,0,0.08);
-  --radius: 12px;
-  --radius-sm: 8px;
+  --radius-sm: 30px;
+  --radius: 40px;
+  --navy: #3A5A7C;
 }
 
 body {
@@ -30,17 +32,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary:hover {
-  background: #6bb8d9;
+  background: #6AA8CC;
 }
 
 .btn-pink {
   background: var(--baby-pink);
   border: none;
-  color: var(--dark-text);
+  color: #fff;
 }
 
 .btn-pink:hover {
-  background: #f5a0ae;
+  background: #E89FB6;
 }
 
 .btn-mint {
@@ -50,7 +52,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-mint:hover {
-  background: #7fc9b6;
+  background: #B0E3BF;
 }
 
 .section-padding {
@@ -66,80 +68,9 @@ h1, h2, h3, h4, h5, h6 {
 .badge-verified {
   background: var(--mint-green);
   color: var(--dark-text);
-  border-radius: 20px;
+  border-radius: 50px;
   padding: 4px 10px;
   font-size: 11px;
-}
-
-.hero-section {
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
-  background: linear-gradient(135deg, var(--sky-blue), var(--mint-green));
-}
-
-.hero-title {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 700;
-  color: white;
-}
-
-.feature-card {
-  text-align: center;
-  padding: 30px 20px;
-  border-radius: var(--radius);
-  background: white;
-  box-shadow: var(--shadow);
-}
-
-.step-number {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--sky-blue);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  margin: 0 auto 16px;
-}
-
-.babysitter-card {
-  border-radius: var(--radius);
-  overflow: hidden;
-  transition: transform 0.2s;
-}
-
-.babysitter-card:hover {
-  transform: translateY(-4px);
-}
-
-.emergency-banner {
-  background: var(--baby-pink);
-  padding: 20px 0;
-  text-align: center;
-}
-
-.section-title {
-  font-family: Poppins, sans-serif;
-  font-weight: 700;
-  margin-bottom: 40px;
-}
-
-footer {
-  background: var(--dark-text);
-  color: #ccc;
-  padding: 60px 0 20px;
-}
-
-footer a {
-  color: #aaa;
-  text-decoration: none;
-}
-
-footer a:hover {
-  color: white;
 }
 
 .navbar-brand {
@@ -149,14 +80,71 @@ footer a:hover {
   color: var(--sky-blue);
 }
 
+.skeleton-wrap {
+  animation: skeletonFadeIn 0.25s ease;
+}
+
+@keyframes skeletonFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.skeleton-line {
+  height: 16px;
+  background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s ease-in-out infinite;
+  border-radius: 30px;
+}
+
+.skeleton-line--sm {
+  height: 12px;
+}
+
+.skeleton-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.skeleton-card {
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.skeleton-title {
+  width: 220px;
+  height: 32px;
+  background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s ease-in-out infinite;
+  border-radius: 30px;
+}
+
+.skeleton-hero {
+  min-height: 300px;
+  background: linear-gradient(135deg, #e0e0e0, #f0f0f0);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
 @media (max-width: 767.98px) {
-  .hero-section {
-    min-height: 60vh;
-  }
   .section-padding {
     padding: 40px 0;
-  }
-  .feature-card {
-    padding: 20px 15px;
   }
 }

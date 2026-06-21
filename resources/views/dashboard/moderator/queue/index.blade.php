@@ -44,7 +44,7 @@
                                 $preview = Str::limit($item->name, 50);
                                 $category = $item->category?->value ?? 'N/A';
                             } else {
-                                $submittedBy = $item->doctor?->user?->name ?? 'Unknown';
+                                $submittedBy = $item->doctor?->name ?? 'Unknown';
                                 $preview = Str::limit($item->title, 50);
                                 $category = $item->category?->value ?? 'N/A';
                             }

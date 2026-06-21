@@ -13,9 +13,6 @@ class PlatformSettingsSeeder extends Seeder
             'commission_percent' => '10',
             'booking_fee_pkr' => '500',
             'maintenance_mode' => 'false',
-            'plan_free_price' => '0',
-            'plan_basic_price' => '999',
-            'plan_premium_price' => '1999',
             'terms_of_service' => '',
             'privacy_policy' => '',
         ];

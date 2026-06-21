@@ -14,7 +14,6 @@ use App\Http\Controllers\NotificationsController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
-Route::get('/pricing', [HomeController::class, 'pricing'])->name('pricing');
 Route::get('/training', [HomeController::class, 'training'])->name('training');
 
 Route::get('/babysitters', [BabysittersController::class, 'index'])->name('babysitters.index');

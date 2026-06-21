@@ -1,0 +1,25 @@
+.error-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--off-white);
+}
+
+.error-code {
+  font-size: 6rem;
+  font-weight: 700;
+  color: var(--sky-blue);
+  line-height: 1;
+}
+
+.error-message {
+  color: var(--dark-text);
+  font-weight: 600;
+}
+
+@media (max-width: 576px) {
+  .error-code {
+    font-size: 4rem;
+  }
+}

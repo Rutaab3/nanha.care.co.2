@@ -13,6 +13,8 @@ use App\Models\Marketplace\Shop;
 use App\Models\Profiles\BabysitterProfile;
 use App\Models\Support\SupportTicket;
 use App\Models\System\FlaggedItem;
+use App\Models\System\ModerationLog;
+use App\Models\System\RoleAssignmentLog;
 use App\Models\System\UserReport;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -41,9 +43,19 @@ class DashboardService implements IDashboardService
                 'open_tickets' => $openTickets,
             ],
             'recentActivity' => collect()
-                ->concat(User::orderByDesc('created_at')->take(5)->get())
-                ->concat(Booking::with('parent', 'babysitter')->orderByDesc('created_at')->take(5)->get())
-                ->sortByDesc('created_at')
+                ->concat(ModerationLog::with('moderator')->orderByDesc('created_at')->take(5)->get()->map(fn($log) => [
+                    'type' => 'Moderation',
+                    'action' => ucfirst($log->action) . ' on ' . class_basename($log->target_type) . ' #' . $log->target_id,
+                    'user_name' => $log->moderator?->name ?? 'Unknown',
+                    'timestamp' => $log->submitted_at ?? $log->created_at,
+                ]))
+                ->concat(RoleAssignmentLog::with('admin')->orderByDesc('created_at')->take(5)->get()->map(fn($log) => [
+                    'type' => 'Role Assignment',
+                    'action' => 'Changed role to ' . $log->new_role,
+                    'user_name' => $log->admin?->name ?? 'Unknown',
+                    'timestamp' => $log->created_at,
+                ]))
+                ->sortByDesc('timestamp')
                 ->take(5)
                 ->values(),
             'dbHealthy' => true,

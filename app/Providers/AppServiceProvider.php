@@ -15,7 +15,6 @@ use App\Contracts\IOnboardingService;
 use App\Contracts\IOrderService;
 use App\Contracts\IPaymentService;
 use App\Contracts\IProductService;
-use App\Contracts\ISubscriptionService;
 use App\Contracts\ISupportTicketService;
 use App\Services\BabysitterService;
 use App\Services\BlogService;
@@ -30,7 +29,6 @@ use App\Services\OnboardingService;
 use App\Services\OrderService;
 use App\Services\PaymentService;
 use App\Services\ProductService;
-use App\Services\SubscriptionService;
 use App\Services\SupportTicketService;
 use Illuminate\Support\ServiceProvider;
 
@@ -51,7 +49,6 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(IModerationService::class, ModerationService::class);
         $this->app->bind(IDashboardService::class, DashboardService::class);
         $this->app->bind(IPaymentService::class, PaymentService::class);
-        $this->app->bind(ISubscriptionService::class, SubscriptionService::class);
         $this->app->bind(IOnboardingService::class, OnboardingService::class);
     }
 

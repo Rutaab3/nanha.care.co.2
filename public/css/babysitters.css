@@ -1,0 +1,9 @@
+.babysitter-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.babysitter-card:hover {
+  transform: translateY(-4px);
+}

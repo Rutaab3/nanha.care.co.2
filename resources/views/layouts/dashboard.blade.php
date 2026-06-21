@@ -8,16 +8,20 @@
     <link href="{{ asset('css/fonts.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/notifications.css') }}" rel="stylesheet">
     @stack('styles')
     <style>
         :root {
-            --sky-blue: #87CEEB;
-            --baby-pink: #FFB6C1;
-            --mint-green: #98D8C8;
-            --off-white: #FAF9F6;
-            --sunshine-yellow: #FFD700;
-            --dark-text: #2D3436;
+            --sky-blue: #7EB8DA;
+            --baby-pink: #F8B1C8;
+            --mint-green: #C6F3D3;
+            --off-white: #FFF9F2;
+            --sunshine-yellow: #FFE97F;
+            --slate-grey: #AAAAAA;
+            --dark-text: #555555;
             --white: #FFFFFF;
+            --navy: #3A5A7C;
         }
         body {
             font-family: 'Nunito', sans-serif;
@@ -61,11 +65,13 @@
         .text-baby-pink { color: var(--baby-pink); }
         .text-mint-green { color: var(--mint-green); }
         .text-sunshine-yellow { color: var(--sunshine-yellow); }
+        .text-slate-grey { color: var(--slate-grey); }
         .bg-sky-blue { background-color: var(--sky-blue); }
         .bg-baby-pink { background-color: var(--baby-pink); }
         .bg-mint-green { background-color: var(--mint-green); }
         .bg-off-white { background-color: var(--off-white); }
         .bg-sunshine-yellow { background-color: var(--sunshine-yellow); }
+        .bg-slate-grey { background-color: var(--slate-grey); }
     </style>
 </head>
 <body class="dashboard-body">
@@ -108,11 +114,15 @@
         @include('partials._confirm-modal')
 
         <div class="content-area">
-            @yield('content')
+            <div id="skeletonLoader" class="d-none">@include('components.skeletons.dashboard')</div>
+            <div id="pageContent">
+                @yield('content')
+            </div>
         </div>
     </div>
 
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('js/dashboard.js') }}"></script>
     <script>
         document.getElementById('sidebarToggle')?.addEventListener('click', function() {
             document.querySelector('.sidebar-menu').classList.toggle('show');
