@@ -50,7 +50,7 @@
                     <p class="small text-muted mb-3">
                         <i class="bi bi-info-circle"></i> Minimum payout: PKR 500. Processed within 3-5 business days.
                     </p>
-                    <button type="submit" class="btn text-white w-100" style="background-color: var(--sky-blue);">
+                    <button type="submit" class="btn btn-primary w-100">
                         <i class="bi bi-send"></i> Request Payout
                     </button>
                 </form>

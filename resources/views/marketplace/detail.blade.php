@@ -4,8 +4,8 @@
 <div class="container py-4">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('home') }}" style="color: var(--sky-blue);">Home</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('marketplace.index') }}" style="color: var(--sky-blue);">Marketplace</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('home') }}" class="text-sky-blue">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('marketplace.index') }}" class="text-sky-blue">Marketplace</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{ $product->name }}</li>
         </ol>
     </nav>
@@ -52,20 +52,20 @@
         </div>
 
         <div class="col-md-6">
-            <h2 class="fw-bold" style="color: var(--dark-text);">{{ $product->name }}</h2>
+            <h2 class="fw-bold text-dark">{{ $product->name }}</h2>
 
             <p class="mb-2">
-                <a href="{{ route('shop.show', $product->shop->slug) }}" class="text-decoration-none" style="color: var(--sky-blue);">
+                <a href="{{ route('shop.show', $product->shop->slug) }}" class="text-decoration-none text-sky-blue">
                     <i class="bi bi-shop"></i> {{ $product->shop->name }}
                 </a>
             </p>
 
             <div class="mb-3">
                 @if($product->sale_price)
-                <span class="fs-3 fw-bold" style="color: var(--baby-pink);">Rs. {{ number_format($product->sale_price) }}</span>
+                <span class="fs-3 fw-bold text-coral">Rs. {{ number_format($product->sale_price) }}</span>
                 <span class="fs-5 text-decoration-line-through text-muted ms-2">Rs. {{ number_format($product->price) }}</span>
                 @else
-                <span class="fs-3 fw-bold" style="color: var(--dark-text);">Rs. {{ number_format($product->price) }}</span>
+                <span class="fs-3 fw-bold text-dark">Rs. {{ number_format($product->price) }}</span>
                 @endif
             </div>
 
@@ -74,7 +74,7 @@
                 <span class="text-muted ms-2">({{ $product->reviews->count() }} reviews)</span>
             </div>
 
-            <p class="mb-4" style="color: var(--dark-text);">{{ $product->description }}</p>
+            <p class="mb-4 text-dark">{{ $product->description }}</p>
 
             @auth
                 @if(auth()->user()->hasRole('parent'))
@@ -93,7 +93,7 @@
                         @csrf
                         <input type="hidden" name="product_id" value="{{ $product->id }}">
                         <input type="hidden" name="qty" value="1">
-                        <button type="submit" class="btn btn-lg px-4" style="background-color: var(--sky-blue); color: var(--white);">
+                        <button type="submit" class="btn btn-primary btn-lg px-4">
                             <i class="bi bi-cart-plus"></i> Add to Cart
                         </button>
                     </form>
@@ -105,20 +105,20 @@
                 @endif
             @else
                 <div class="mb-4">
-                    <a href="{{ route('auth.login') }}" class="btn btn-lg px-4" style="background-color: var(--sky-blue); color: var(--white);">
+                    <a href="{{ route('auth.login') }}" class="btn btn-primary btn-lg px-4">
                         <i class="bi bi-box-arrow-in-right"></i> Login to Add to Cart
                     </a>
                 </div>
             @endauth
 
-            <span class="badge rounded-pill px-3 py-2" style="background-color: var(--mint-green); color: var(--dark-text);">
+            <span class="badge rounded-pill px-3 py-2 bg-mint-green text-dark">
                 <i class="bi bi-tag"></i> {{ $product->category }}
             </span>
         </div>
     </div>
 
     <div class="mt-5">
-        <h4 class="fw-bold mb-4" style="color: var(--dark-text);">Reviews</h4>
+        <h4 class="fw-bold mb-4 text-dark">Reviews</h4>
         @if($product->reviews->count() > 0)
         <div class="row g-4">
             @foreach($product->reviews as $review)
@@ -140,7 +140,7 @@
         </div>
         @else
         <div class="text-center py-4">
-            <i class="bi bi-chat-square-text" style="font-size: 3rem; color: var(--sky-blue);"></i>
+            <i class="bi bi-chat-square-text text-sky-blue" style="font-size: 3rem;"></i>
             <p class="mt-2 text-muted">No reviews yet. Be the first to review this product!</p>
         </div>
         @endif

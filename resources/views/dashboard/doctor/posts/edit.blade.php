@@ -97,7 +97,7 @@
                 <button type="submit" name="action" value="draft" class="btn btn-outline-secondary">
                     <i class="bi bi-save"></i> Save as Draft
                 </button>
-                <button type="submit" name="action" value="submit" class="btn text-white" style="background-color: var(--sky-blue);">
+                <button type="submit" name="action" value="submit" class="btn btn-primary">
                     <i class="bi bi-send-check"></i> Submit for Review
                 </button>
             </div>

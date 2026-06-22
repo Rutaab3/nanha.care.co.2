@@ -108,7 +108,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn text-white" style="background-color: var(--sky-blue);">
+                    <button type="submit" class="btn btn-primary">
                         <i class="bi bi-send"></i> Post Reply
                     </button>
                 </div>

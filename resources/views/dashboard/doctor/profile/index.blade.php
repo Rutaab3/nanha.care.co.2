@@ -62,7 +62,7 @@
                         @error('profile_photo') <div class="invalid-feedback">{{ $message }}</div> @enderror
                     </div>
 
-                    <button type="submit" class="btn text-white" style="background-color: var(--sky-blue);">
+                    <button type="submit" class="btn btn-primary">
                         <i class="bi bi-check-lg"></i> Update Profile
                     </button>
                 </form>

@@ -4,17 +4,17 @@
 <div class="container py-4">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('home') }}" style="color: var(--sky-blue);">Home</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('blog.index') }}" style="color: var(--sky-blue);">Blog</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('home') }}" class="text-sky-blue">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('blog.index') }}" class="text-sky-blue">Blog</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{ $post->title }}</li>
         </ol>
     </nav>
 
     <article>
         <div class="mb-3">
-            <span class="badge rounded-pill px-3 py-1" style="background-color: var(--mint-green); color: var(--dark-text);">{{ $post->category }}</span>
+            <span class="badge rounded-pill px-3 py-1 bg-mint-green text-on-gradient">{{ $post->category }}</span>
         </div>
-        <h1 class="fw-bold mb-3" style="color: var(--dark-text);">{{ $post->title }}</h1>
+        <h1 class="fw-bold mb-3 text-navy">{{ $post->title }}</h1>
         <div class="d-flex align-items-center gap-3 mb-4">
             <img src="{{ $post->doctor?->doctorProfile?->profile_photo ? asset('storage/' . $post->doctor->doctorProfile->profile_photo) : 'https://placehold.co/50x50?text=Dr' }}" alt="{{ $post->doctor->name ?? 'Author' }}" class="rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
             <div>
@@ -25,20 +25,20 @@
 
         <img src="{{ $post->cover_image ? asset('storage/' . $post->cover_image) : 'https://placehold.co/1200x600?text=Blog' }}" alt="{{ $post->title }}" class="img-fluid rounded mb-4 w-100" style="max-height: 500px; object-fit: cover;">
 
-        <div class="mb-5 fs-5 lh-lg" style="color: var(--dark-text);">
+        <div class="mb-5 fs-5 lh-lg text-dark">
             {!! $post->content !!}
         </div>
 
         @if($post->doctor)
-        <div class="card shadow-sm border-0 mb-5" style="background-color: var(--off-white);">
+        <div class="card shadow-sm border-0 mb-5 bg-off-white">
             <div class="card-body d-flex align-items-center gap-4">
                 <img src="{{ $post->doctor?->doctorProfile?->profile_photo ? asset('storage/' . $post->doctor->doctorProfile->profile_photo) : 'https://placehold.co/80x80?text=Dr' }}" alt="{{ $post->doctor->name }}" class="rounded-circle" style="width: 80px; height: 80px; object-fit: cover;">
                 <div>
-                    <h5 class="fw-bold mb-1" style="color: var(--dark-text);">{{ $post->doctor->name }}</h5>
+                    <h5 class="fw-bold mb-1 text-navy">{{ $post->doctor->name }}</h5>
                     <p class="mb-1 text-muted">{{ $post->doctor?->doctorProfile?->specialization ?? 'Pediatrician' }}</p>
                     <small class="text-muted">PMDC No: {{ $post->doctor?->doctorProfile?->pmdc_number ?? 'N/A' }}</small>
                     <br>
-                    <a href="#" class="btn btn-sm mt-2" style="background-color: var(--sky-blue); color: var(--white);">View Profile</a>
+                    <a href="#" class="btn btn-sm mt-2 btn-primary">View Profile</a>
                 </div>
             </div>
         </div>
@@ -57,16 +57,16 @@
 
     @if($relatedPosts->count() > 0)
     <div class="mb-5">
-        <h4 class="fw-bold mb-4" style="color: var(--dark-text);">Related Articles</h4>
+        <h4 class="fw-bold mb-4 text-navy">Related Articles</h4>
         <div class="row g-4">
             @foreach($relatedPosts as $related)
             <div class="col-md-4">
                 <div class="card h-100 shadow-sm border-0">
                     <img src="{{ $related->cover_image ? asset('storage/' . $related->cover_image) : 'https://placehold.co/600x400?text=Blog' }}" alt="{{ $related->title }}" class="card-img-top rounded-top" style="height: 180px; object-fit: cover;">
                     <div class="card-body">
-                        <span class="badge rounded-pill px-2 py-1 mb-2" style="background-color: var(--mint-green); color: var(--dark-text); font-size: 0.75rem;">{{ $related->category }}</span>
-                        <h6 class="fw-bold" style="color: var(--dark-text);">{{ $related->title }}</h6>
-                        <a href="{{ route('blog.detail', $related->slug) }}" class="btn btn-sm mt-2" style="background-color: var(--sky-blue); color: var(--white);">Read More</a>
+                        <span class="badge rounded-pill px-2 py-1 mb-2 bg-mint-green text-on-gradient" style="font-size: 0.75rem;">{{ $related->category }}</span>
+                        <h6 class="fw-bold text-navy">{{ $related->title }}</h6>
+                        <a href="{{ route('blog.detail', $related->slug) }}" class="btn btn-sm mt-2 btn-primary">Read More</a>
                     </div>
                 </div>
             </div>
@@ -76,7 +76,7 @@
     @endif
 
     <div class="mb-5">
-        <h4 class="fw-bold mb-4" style="color: var(--dark-text);">Comments ({{ $post->comments->count() }})</h4>
+        <h4 class="fw-bold mb-4 text-navy">Comments ({{ $post->comments->count() }})</h4>
 
         @if($post->comments->count() > 0)
         <div class="d-flex flex-column gap-3 mb-4">
@@ -90,7 +90,7 @@
                             <small class="text-muted">{{ $comment->created_at->diffForHumans() }}</small>
                             <p class="mt-2 mb-0">{{ $comment->content }}</p>
                             @if($comment->reply)
-                            <div class="mt-3 p-3 rounded" style="background-color: var(--mint-green); border-left: 4px solid var(--sky-blue);">
+                            <div class="mt-3 p-3 rounded bg-mint-green" style="border-left: 4px solid var(--sky-blue);">
                                 <div class="d-flex align-items-center gap-2 mb-1">
                                     <i class="bi bi-chat-quote"></i>
                                     <strong class="small">Doctor's Reply</strong>
@@ -110,7 +110,7 @@
             @if(auth()->user()->hasRole('parent'))
             <div class="card shadow-sm border-0">
                 <div class="card-body">
-                    <h6 class="fw-bold mb-3" style="color: var(--dark-text);">Leave a Comment</h6>
+                    <h6 class="fw-bold mb-3 text-navy">Leave a Comment</h6>
                     <form method="POST" action="{{ route('blog.comment', $post->id) }}">
                         @csrf
                         <div class="mb-3">
@@ -119,7 +119,7 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
-                        <button type="submit" class="btn" style="background-color: var(--sky-blue); color: var(--white);">Post Comment</button>
+                        <button type="submit" class="btn btn-primary">Post Comment</button>
                     </form>
                 </div>
             </div>
@@ -130,13 +130,13 @@
             @endif
         @else
         <div class="alert alert-light d-flex align-items-center gap-2 border">
-            <i class="bi bi-person"></i> Please <a href="{{ route('auth.login') }}" class="fw-semibold" style="color: var(--sky-blue);">login</a> to leave a comment.
+            <i class="bi bi-person"></i> Please <a href="{{ route('auth.login') }}" class="fw-semibold text-sky-blue">login</a> to leave a comment.
         </div>
         @endif
 
         @if($post->comments->count() === 0)
         <div class="text-center py-4">
-            <i class="bi bi-chat-dots" style="font-size: 2.5rem; color: var(--sky-blue);"></i>
+            <i class="bi bi-chat-dots text-sky-blue" style="font-size: 2.5rem;"></i>
             <p class="text-muted mt-2 mb-0">No comments yet. Be the first to share your thoughts!</p>
         </div>
         @endif

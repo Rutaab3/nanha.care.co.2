@@ -65,3 +65,103 @@
   background: var(--sky-blue);
   color: white;
 }
+
+/* ── Onboarding page enhancements ── */
+
+.onboarding-page {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255, 159, 197, 0.1), transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(145, 215, 236, 0.12), transparent 45%),
+    linear-gradient(180deg, #fff8f0 0%, #fbfcff 44%, #fff8f0 100%);
+}
+
+.onboarding-card {
+  position: relative;
+  overflow: hidden;
+}
+.onboarding-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #91d7ec, #ff9fc5);
+}
+
+.progress-step {
+  transition: transform 0.2s;
+}
+.progress-step.active {
+  background: linear-gradient(135deg, #bde0fe, #a2d2ff);
+  box-shadow: 0 4px 12px rgba(162, 210, 255, 0.4);
+  transform: scale(1.1);
+}
+.progress-step.done {
+  background: linear-gradient(135deg, #bde0fe, #a2d2ff);
+  box-shadow: 0 4px 12px rgba(162, 210, 255, 0.3);
+}
+.progress-step.pending {
+  background: #f2e7ee;
+  color: #aaa;
+}
+
+.specialization-pill label {
+  transition: all 0.2s;
+  font-weight: 500;
+}
+.specialization-pill label:hover {
+  border-color: #a2d2ff;
+  background: #eaf8fc;
+}
+.specialization-pill input:checked + label {
+  background: linear-gradient(135deg, #bde0fe, #a2d2ff);
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(162, 210, 255, 0.3);
+}
+
+.onboarding-card .btn-primary {
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ffc8dd, #ffafcc) !important;
+  border: 0;
+  font-weight: 700;
+  padding: 12px 32px;
+  transition: opacity 0.2s, transform 0.15s;
+}
+.onboarding-card .btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.onboarding-card .form-label {
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #3f3a5f;
+}
+
+.onboarding-card .form-control {
+  border-radius: 8px;
+  border: 1.5px solid #e8dde8;
+  padding: 11px 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.onboarding-card .form-control:focus {
+  border-color: #a2d2ff;
+  box-shadow: 0 0 0 3px rgba(162, 210, 255, 0.25);
+}
+
+@media (max-width: 767.98px) {
+  .onboarding-card {
+    padding: 28px 20px;
+  }
+  .progress-steps {
+    gap: 4px;
+  }
+  .progress-step {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+}

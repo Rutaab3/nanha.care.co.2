@@ -1,30 +1,28 @@
 <div class="card h-100 border-0 shadow-sm">
-    <img src="{{ $product->images->first()->path ? asset('storage/' . $product->images->first()->path) : 'https://placehold.co/300x300?text=Product' }}"
-         alt="{{ $product->name }}"
-         class="card-img-top"
-         style="height: 200px; object-fit: cover;">
-    <div class="card-body d-flex flex-column">
-        <h6 class="card-title mb-1">{{ $product->name }}</h6>
-        <p class="mb-1">
-            @if(isset($product->sale_price) && $product->sale_price < $product->price)
-                <span class="fw-bold" style="color: var(--dark-text);">PKR {{ number_format($product->sale_price, 0) }}</span>
-                <span class="text-muted text-decoration-line-through ms-1 small">PKR {{ number_format($product->price, 0) }}</span>
+    <div class="card-body text-center">
+        <div class="mb-3">
+            <img src="{{ $product->images[0] ?? 'https://via.placeholder.com/150?text=No+Image' }}"
+                 alt="{{ $product->name }}"
+                 class="img-fluid rounded"
+                 style="height: 180px; object-fit: cover;">
+        </div>
+        <h6 class="fw-bold text-navy mb-1">{{ $product->name }}</h6>
+        <p class="text-muted small mb-2">{{ Str::limit($product->description, 60) }}</p>
+        <div class="mb-2">
+            @if($product->sale_price && $product->sale_price < $product->price)
+                <span class="text-decoration-line-through text-slate-grey me-2 small">PKR {{ number_format($product->price, 0) }}</span>
+                <span class="fw-bold text-navy">PKR {{ number_format($product->sale_price, 0) }}</span>
             @else
-                <span class="fw-bold" style="color: var(--dark-text);">PKR {{ number_format($product->price, 0) }}</span>
+                <span class="fw-bold text-navy">PKR {{ number_format($product->price, 0) }}</span>
             @endif
-        </p>
-        <p class="text-muted small mb-2">
-            <a href="{{ route('shop.show', $product->shop->slug ?? '#') }}" class="text-decoration-none" style="color: var(--sky-blue);">
-                <i class="bi bi-shop me-1"></i>{{ $product->shop->name ?? 'Unknown Shop' }}
+        </div>
+        @if($product->shop)
+            <a href="{{ route('shop.show', $product->shop->slug ?? '#') }}" class="text-decoration-none small text-sky-blue">
+                <i class="bi bi-shop me-1"></i>{{ $product->shop->name }}
             </a>
-        </p>
-        @if(isset($product->avgRating))
-            @include('partials._star-rating', ['rating' => $product->avgRating])
         @endif
-        <div class="mt-auto pt-2">
-            <a href="{{ route('marketplace.detail', $product->id) }}" class="btn w-100" style="background-color: var(--sky-blue); color: var(--dark-text);">
-                <i class="bi bi-info-circle me-1"></i>Details
-            </a>
+        <div class="mt-3">
+            <a href="{{ route('marketplace.detail', $product->id) }}" class="btn btn-primary w-100">View Details</a>
         </div>
     </div>
 </div>

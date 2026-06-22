@@ -1,3 +1,24 @@
+/*
+  Homepage visual layer.
+  The layout is scoped with the eighth emergency CTA section so this global
+  stylesheet does not restyle unrelated pages that also use shared classes.
+*/
+
+:root {
+  --home-ink: #3f3a5f;
+  --home-muted: #70758c;
+  --home-blue: #91d7ec;
+  --home-blue-soft: #eaf8fc;
+  --home-pink: #ff9fc5;
+  --home-pink-soft: #fff0f6;
+  --home-yellow: #ffe35d;
+  --home-cream: #fff8f0;
+  --home-panel: #ffffff;
+  --home-line: #f2e7ee;
+  --home-shadow: 0 18px 45px rgba(77, 69, 102, 0.12);
+  --home-shadow-soft: 0 10px 30px rgba(77, 69, 102, 0.08);
+}
+
 .hero-section {
   min-height: 80vh;
   display: flex;
@@ -44,26 +65,523 @@
   text-align: center;
 }
 
-footer {
-  background: linear-gradient(13deg, var(--sky-blue), var(--baby-pink));
-  color: var(--navy);
-  padding: 60px 0 20px;
+.emergency-banner a {
+  font-weight: 700;
 }
 
-footer a {
-  color: var(--navy);
-  text-decoration: none;
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) {
+  background:
+    linear-gradient(180deg, #fff8f0 0%, #fbfcff 44%, #fff8f0 100%);
+  color: var(--home-ink);
 }
 
-footer a:hover {
-  opacity: 0.7;
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) main {
+  background:
+    linear-gradient(180deg, rgba(255, 248, 240, 0.92), rgba(247, 252, 255, 0.96) 45%, rgba(255, 248, 240, 0.95));
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent {
+  overflow: hidden;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section {
+  position: relative;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section .container {
+  max-width: 1120px;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:not(:first-child) {
+  padding-block: 78px !important;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section h2 {
+  color: var(--home-ink) !important;
+  font-size: clamp(1.35rem, 2.2vw, 1.8rem);
+  letter-spacing: 0;
+  margin-bottom: 3rem !important;
+  position: relative;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section h2::after {
+  background: linear-gradient(90deg, var(--home-blue), var(--home-pink));
+  border-radius: 999px;
+  bottom: -12px;
+  content: "";
+  height: 4px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 72px;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section p {
+  color: var(--home-muted);
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:first-child {
+  background:
+    radial-gradient(circle at 8% 30%, rgba(255, 159, 197, 0.34), transparent 23%),
+    radial-gradient(circle at 79% 16%, rgba(145, 215, 236, 0.4), transparent 25%),
+    linear-gradient(115deg, #fff8f0 0%, #f4fbf4 42%, #eaf8fc 68%, #fff0f6 100%) !important;
+  color: var(--home-ink) !important;
+  min-height: 570px;
+  overflow: hidden;
+  padding-block: 82px 92px !important;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:first-child::before {
+  background:
+    linear-gradient(90deg, rgba(255, 227, 93, 0.16) 0 24%, transparent 24% 36%, rgba(145, 215, 236, 0.14) 36% 58%, transparent 58% 70%, rgba(255, 159, 197, 0.13) 70%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.55), transparent 58%);
+  border-radius: 999px;
+  bottom: -110px;
+  content: "";
+  height: 260px;
+  left: -80px;
+  opacity: 0.8;
+  position: absolute;
+  width: 760px;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:first-child::after {
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, 0.72) 0 22%, transparent 23%) 0 0 / 90px 90px,
+    linear-gradient(135deg, rgba(255, 159, 197, 0.16), rgba(145, 215, 236, 0.18));
+  border-radius: 50%;
+  content: "";
+  height: 210px;
+  opacity: 0.65;
+  position: absolute;
+  right: -70px;
+  top: 88px;
+  width: 210px;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:first-child .container {
+  align-items: center;
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 430px);
+  padding-block: 0 !important;
+  position: relative;
+  text-align: left !important;
+  z-index: 1;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:first-child .container::after {
+  align-self: center;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.55)),
+    radial-gradient(circle at 67% 26%, #ffe5bd 0 10%, transparent 10.5%),
+    radial-gradient(ellipse at 68% 43%, #f1a9c0 0 15%, transparent 15.5%),
+    radial-gradient(ellipse at 35% 64%, #f5d3ba 0 19%, transparent 19.5%),
+    linear-gradient(135deg, #dcf3ef 0%, #f6f0e8 44%, #ffe4ed 100%);
+  border: 8px solid rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: var(--home-shadow);
+  content: "";
+  display: block;
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  min-height: 302px;
+  position: relative;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:first-child h1,
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:first-child p,
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:first-child .d-flex {
+  grid-column: 1;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:first-child h1 {
+  color: var(--home-ink) !important;
+  font-size: clamp(2.25rem, 5vw, 4.65rem);
+  line-height: 1.03;
+  margin-bottom: 1.25rem !important;
+  max-width: 620px;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:first-child .lead {
+  color: #62687a !important;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-weight: 700;
+  line-height: 1.75;
+  margin-bottom: 2rem !important;
+  max-width: 560px;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:first-child .d-flex {
+  flex-wrap: wrap;
+  justify-content: flex-start !important;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:first-child .btn {
+  border-radius: 999px;
+  box-shadow: var(--home-shadow-soft);
+  font-size: 0.95rem;
+  min-height: 48px;
+  padding: 0.8rem 1.35rem !important;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:first-child .btn-primary {
+  background: var(--home-yellow) !important;
+  color: var(--home-ink) !important;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:first-child .btn-outline-light {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(145, 215, 236, 0.65) !important;
+  color: #397c95 !important;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(2),
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(4),
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(6) {
+  background: var(--home-cream);
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(5),
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(7) {
+  background: #f6fbff !important;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(2) .card,
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(6) [class*="col-"],
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(7) .card {
+  background: var(--home-panel);
+  border: 1px solid rgba(255, 255, 255, 0.9) !important;
+  border-radius: 8px;
+  box-shadow: var(--home-shadow-soft) !important;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(2) .card {
+  min-height: 255px;
+  text-align: left !important;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(2) .card-body {
+  padding: 1.8rem !important;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(2) .card i {
+  align-items: center;
+  background: linear-gradient(135deg, #ff7eb8, #ffb8d1);
+  border-radius: 50%;
+  box-shadow: 0 10px 24px rgba(255, 126, 184, 0.24);
+  color: #ffffff !important;
+  display: inline-flex;
+  font-size: 1.45rem !important;
+  height: 56px;
+  justify-content: center;
+  margin-bottom: 1.25rem !important;
+  width: 56px;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(2) h5,
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(6) p.fw-bold,
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(7) .fw-bold {
+  color: var(--home-ink) !important;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(3) {
+  background: linear-gradient(135deg, #83cdeb 0%, #c4d0ef 48%, #ff9fc5 100%) !important;
+  overflow: hidden;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(3)::before {
+  background:
+    radial-gradient(circle at 28% 20%, rgba(255, 255, 255, 0.34), transparent 22%),
+    radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.18), transparent 24%);
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(3) .container {
+  position: relative;
+  z-index: 1;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(3) h2,
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(3) h5,
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(3) p {
+  color: #ffffff !important;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(3) h2::after {
+  background: rgba(255, 255, 255, 0.78);
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(3) .row > [class*="col-"] {
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 8px;
+  box-shadow: 0 16px 36px rgba(67, 77, 110, 0.14);
+  color: var(--home-ink);
+  padding: 2rem 1.25rem;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(3) .row > [class*="col-"] h5,
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(3) .row > [class*="col-"] p {
+  color: var(--home-ink) !important;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(3) .rounded-circle {
+  background: linear-gradient(135deg, #ffd8e8, #ffffff) !important;
+  box-shadow: 0 10px 22px rgba(255, 159, 197, 0.24);
+  color: var(--home-pink) !important;
+  height: 58px !important;
+  width: 58px !important;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(4) .row {
+  display: block;
+  margin-inline: auto;
+  max-width: 790px;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(4) .row > [class*="col-"] {
+  width: 100%;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(4) .card {
+  background: transparent;
+  border: 0 !important;
+  box-shadow: none !important;
+  margin-bottom: 1.3rem;
+  text-align: left !important;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(4) .card-body {
+  align-items: start;
+  display: grid;
+  gap: 0 1rem;
+  grid-template-columns: 56px 1fr;
+  padding: 0.35rem 0 !important;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(4) .card i {
+  align-items: center;
+  background: linear-gradient(135deg, #ff7eb8, #ffbfd6);
+  border-radius: 50%;
+  color: #ffffff !important;
+  display: inline-flex;
+  font-size: 1.35rem !important;
+  grid-row: 1 / span 2;
+  height: 50px;
+  justify-content: center;
+  width: 50px;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(4) h6,
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(4) p {
+  grid-column: 2;
+  margin-bottom: 0.25rem !important;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(5) .overflow-x-auto {
+  scrollbar-color: var(--home-pink) rgba(255, 255, 255, 0.8);
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(5) .d-flex.flex-nowrap {
+  justify-content: center;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(5) .card {
+  border: 0 !important;
+  border-radius: 8px;
+  box-shadow: var(--home-shadow-soft) !important;
+  overflow: hidden;
+  text-align: left !important;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(5) .card-body {
+  padding: 0 !important;
+  position: relative;
+  text-align: left !important;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(5) .position-relative {
+  display: block !important;
+  width: 100%;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(5) img.rounded-circle {
+  border-radius: 0 !important;
+  display: block;
+  height: 215px !important;
+  margin: 0 !important;
+  object-fit: cover;
+  width: 100% !important;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(5) .card-body > .badge.rounded-pill.mb-2 {
+  background: rgba(255, 255, 255, 0.94) !important;
+  color: var(--home-ink) !important;
+  left: 12px;
+  position: absolute;
+  top: 12px;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(5) .card-title,
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(5) .card-body > p,
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(5) .star-rating,
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(5) .card-body > .mt-2,
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(5) .card-body > .btn {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(5) .card-title {
+  font-size: 1.05rem;
+  margin-top: 1rem;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(5) .star-rating {
+  color: #ffc928 !important;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(5) .card-body > .mt-2 .badge {
+  background: var(--home-blue-soft) !important;
+  color: #3d7d97 !important;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(5) .card-body > p.fw-bold {
+  color: var(--home-ink) !important;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(5) .card-body > .btn {
+  align-items: center;
+  background: var(--home-yellow) !important;
+  border: 0 !important;
+  border-radius: 999px;
+  color: var(--home-ink) !important;
+  display: inline-flex;
+  font-size: 0.85rem;
+  font-weight: 800;
+  justify-content: center;
+  margin-bottom: 1rem;
+  padding: 0.65rem 1rem;
+  width: auto !important;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(6) .row > [class*="col-"] {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  min-height: 180px;
+  padding: 1.7rem 1.5rem;
+  text-align: left !important;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(6) i {
+  align-items: center;
+  background: linear-gradient(135deg, #ff7eb8, #ffb8d1);
+  border-radius: 50%;
+  color: #ffffff !important;
+  display: inline-flex;
+  font-size: 1.45rem !important;
+  height: 54px;
+  justify-content: center;
+  margin-bottom: 1rem !important;
+  width: 54px;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(6) p {
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(7) .card {
+  border-top: 4px solid var(--home-pink) !important;
+  overflow: hidden;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(7) .card-body {
+  padding: 1.75rem !important;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(7) .bi-chat-square-quote {
+  align-items: center;
+  background: var(--home-pink-soft);
+  border-radius: 50%;
+  color: var(--home-pink) !important;
+  display: inline-flex;
+  font-size: 1.35rem !important;
+  height: 50px;
+  justify-content: center;
+  opacity: 1 !important;
+  width: 50px;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(8) {
+  background: linear-gradient(90deg, #91d7ec 0%, #bde5ed 42%, #ffadc9 100%) !important;
+  padding-block: 38px !important;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(8) h4 {
+  color: #ffffff !important;
+  margin-inline: auto;
+  max-width: 780px;
+}
+
+body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(8) .btn {
+  border: 0;
+  border-radius: 999px;
+  box-shadow: var(--home-shadow-soft);
+}
+
+@media (max-width: 991.98px) {
+  body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:first-child .container {
+    grid-template-columns: 1fr;
+  }
+
+  body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:first-child .container::after {
+    grid-column: 1;
+    grid-row: auto;
+    min-height: 260px;
+  }
 }
 
 @media (max-width: 767.98px) {
   .hero-section {
     min-height: 60vh;
   }
+
   .feature-card {
     padding: 20px 15px;
+  }
+
+  body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:first-child {
+    min-height: auto;
+    padding-block: 56px !important;
+  }
+
+  body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:not(:first-child) {
+    padding-block: 58px !important;
+  }
+
+  body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:first-child .d-flex {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:first-child .btn {
+    width: 100%;
+  }
+
+  body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(3) .row {
+    gap: 1rem;
+  }
+
+  body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(5) .d-flex.flex-nowrap {
+    justify-content: flex-start;
+  }
+
+  body:has(#pageContent > section:nth-of-type(8).bg-gradient-accent) #pageContent > section:nth-of-type(6) .row > [class*="col-"] {
+    min-height: 160px;
   }
 }

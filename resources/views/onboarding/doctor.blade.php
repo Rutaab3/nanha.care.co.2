@@ -70,7 +70,7 @@
                             </div>
 
                             <div class="d-flex justify-content-end mt-4">
-                                <button type="button" class="btn px-4" id="step1-next" style="background-color: var(--baby-pink); color: var(--white); font-weight: 600;" onclick="goToStep(2)">
+                                <button type="button" class="btn btn-primary px-4" id="step1-next" onclick="goToStep(2)">
                                     Next <i class="bi bi-arrow-right ms-1"></i>
                                 </button>
                             </div>
@@ -138,7 +138,7 @@
                                 <button type="button" class="btn btn-outline-secondary px-4" id="step2-prev" onclick="goToStep(1)">
                                     <i class="bi bi-arrow-left me-1"></i> Previous
                                 </button>
-                                <button type="submit" class="btn px-4" style="background-color: var(--baby-pink); color: var(--white); font-weight: 600;">
+                                <button type="submit" class="btn btn-primary px-4">
                                     <i class="bi bi-check-lg me-1"></i> Submit Registration
                                 </button>
                             </div>

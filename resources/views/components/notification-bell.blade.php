@@ -1,10 +1,13 @@
 @php
-    $unreadCount = \App\Models\Notification::where('user_id', auth()->id())->where('is_read', false)->count();
-    $recentNotifications = \App\Models\Notification::where('user_id', auth()->id())->where('is_read', false)->latest()->take(10)->get();
+    $userId = auth()->id();
+    $unreadCount = \Illuminate\Support\Facades\Cache::remember("notifications.unread.$userId", 60, function () use ($userId) {
+        return \App\Models\Notification::where('user_id', $userId)->where('is_read', false)->count();
+    });
+    $recentNotifications = \App\Models\Notification::where('user_id', $userId)->where('is_read', false)->latest()->take(10)->get();
 @endphp
 <div class="dropdown">
     <button class="btn position-relative" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background: transparent; border: none;">
-        <i class="bi bi-bell fs-5" style="color: var(--dark-text);"></i>
+        <i class="bi bi-bell fs-5 text-dark"></i>
         @if($unreadCount > 0)
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem;">
                 {{ $unreadCount > 99 ? '99+' : $unreadCount }}
@@ -17,10 +20,10 @@
             <li>
                 <a class="dropdown-item d-flex align-items-start gap-2" href="{{ route('notifications.mark-read', $notification->id) }}" style="white-space: normal;">
                     <span class="mt-1">
-                        <span class="badge rounded-pill" style="background-color: var(--sky-blue); width: 8px; height: 8px; display: inline-block; padding: 0;"></span>
+                        <span class="badge rounded-pill bg-sky-blue" style="width: 8px; height: 8px; display: inline-block; padding: 0;"></span>
                     </span>
                     <div>
-                        <p class="mb-0 small">{{ $notification->message ?? $notification->title }}</p>
+                        <p class="mb-0 small">{{ $notification->message }}</p>
                         <small class="text-muted">{{ $notification->created_at->diffForHumans() }}</small>
                     </div>
                 </a>

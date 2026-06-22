@@ -4,12 +4,12 @@
 <div class="container py-5">
     <div class="row mb-4">
         <div class="col-12">
-            <h2 class="fw-bold" style="color: var(--dark-text);">Find a Babysitter</h2>
+            <h2 class="fw-bold text-dark">Find a Babysitter</h2>
             <p class="text-muted">Browse trusted babysitters in your area</p>
         </div>
     </div>
 
-    <div class="card shadow-sm border-0 mb-4" style="background-color: var(--off-white);">
+    <div class="card shadow-sm border-0 mb-4 bg-off-white">
         <div class="card-body p-4">
             <form method="GET" action="{{ route('babysitters.index') }}">
                 <div class="row g-3">
@@ -47,7 +47,7 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col-12 d-flex gap-2">
-                        <button type="submit" class="btn px-4" style="background-color: var(--mint-green); color: var(--white); font-weight: 600;">
+                        <button type="submit" class="btn btn-primary px-4" style="font-weight: 600;">
                             <i class="bi bi-funnel me-1"></i> Filter
                         </button>
                         <a href="{{ route('babysitters.index') }}" class="btn btn-outline-secondary px-4">
@@ -60,7 +60,7 @@
     </div>
 
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <p class="mb-0 fw-medium" style="color: var(--dark-text);">
+        <p class="mb-0 fw-medium text-dark">
             Showing {{ $babysitters->count() }} babysitter{{ $babysitters->count() !== 1 ? 's' : '' }}
         </p>
     </div>
@@ -80,10 +80,10 @@
     @else
     <div class="text-center py-5">
         <i class="bi bi-people" style="font-size: 4rem; color: #dee2e6;"></i>
-        <h5 class="mt-3 fw-semibold" style="color: var(--dark-text);">No babysitters found matching your criteria</h5>
+        <h5 class="mt-3 fw-semibold text-dark">No babysitters found matching your criteria</h5>
         <p class="text-muted">Try adjusting your filters or search terms.</p>
-        <a href="{{ route('babysitters.index') }}" class="btn px-4" style="background-color: var(--mint-green); color: var(--white); font-weight: 600;">
-            <i class="bi bi-x-circle me-1"></i> Clear Filters
+<a href="{{ route('babysitters.index') }}" class="btn btn-primary px-4" style="font-weight: 600;">
+                            <i class="bi bi-x-circle me-1"></i> Clear Filters
         </a>
     </div>
     @endif

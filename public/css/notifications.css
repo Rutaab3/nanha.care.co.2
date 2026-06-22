@@ -1,11 +1,18 @@
 .notification-item {
   border-radius: var(--radius);
   transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
 }
 
 .notification-item:hover {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 16px rgba(77, 69, 102, 0.12);
   transform: translateX(4px);
+}
+
+.notification-item.unread {
+  background: linear-gradient(135deg, #eaf8fc, #fff0f6);
+  border-left: 3px solid #ff9fc5;
 }
 
 .notification-icon {
@@ -16,4 +23,30 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transition: transform 0.2s;
+}
+.notification-item:hover .notification-icon {
+  transform: scale(1.1);
+}
+
+.notification-time {
+  font-size: 12px;
+  color: #70758c;
+}
+
+.notification-empty {
+  text-align: center;
+  padding: 60px 20px;
+}
+.notification-empty i {
+  font-size: 4rem;
+  color: #cdb4db;
+  margin-bottom: 16px;
+}
+.notification-empty h4 {
+  font-weight: 700;
+  color: #3f3a5f;
+}
+.notification-empty p {
+  color: #70758c;
 }

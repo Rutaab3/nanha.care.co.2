@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid py-5" style="background: linear-gradient(135deg, var(--sky-blue), var(--mint-green));">
+<div class="container-fluid py-5 bg-gradient-hero text-on-gradient">
     <div class="container text-center">
-        <h1 class="display-4 fw-bold" style="color: var(--dark-text);">Baby Products Marketplace</h1>
-        <p class="lead mb-0" style="color: var(--dark-text);">Everything your little one needs, from trusted shops across Pakistan</p>
+        <h1 class="display-4 fw-bold">Baby Products Marketplace</h1>
+        <p class="lead mb-0">Everything your little one needs, from trusted shops across Pakistan</p>
     </div>
 </div>
 
 <div class="container py-4">
-    <form method="GET" action="{{ route('marketplace.index') }}" class="row g-3 mb-4 p-3 rounded shadow-sm" style="background-color: var(--white);">
+    <form method="GET" action="{{ route('marketplace.index') }}" class="row g-3 mb-4 p-3 rounded shadow-sm bg-off-white">
         <div class="col-md-3">
             <input type="text" name="search" class="form-control" placeholder="Search products..." value="{{ request('search') }}">
         </div>
@@ -59,8 +59,8 @@
     </div>
     @else
     <div class="text-center py-5">
-        <i class="bi bi-box-seam" style="font-size: 4rem; color: var(--sky-blue);"></i>
-        <h4 class="mt-3 fw-semibold" style="color: var(--dark-text);">No products found</h4>
+        <i class="bi bi-box-seam text-sky-blue" style="font-size: 4rem;"></i>
+        <h4 class="mt-3 fw-semibold text-dark">No products found</h4>
         <p class="text-muted">Try adjusting your search or filter criteria.</p>
         <a href="{{ route('marketplace.index') }}" class="btn btn-primary">View All Products</a>
     </div>

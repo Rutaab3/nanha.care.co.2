@@ -126,3 +126,135 @@
   margin-top: 12px;
   border-left: 3px solid var(--mint-green);
 }
+
+/* ── Blog page enhancements ── */
+
+.blog-card {
+  position: relative;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.blog-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #91d7ec, #ff9fc5);
+  z-index: 1;
+}
+.blog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 45px rgba(77, 69, 102, 0.14) !important;
+}
+
+.blog-card img {
+  transition: transform 0.4s;
+}
+.blog-card:hover img {
+  transform: scale(1.03);
+}
+
+.blog-card .category-badge {
+  background: linear-gradient(135deg, #bde0fe, #a2d2ff) !important;
+  color: white !important;
+  border: 0;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.blog-card .title {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  transition: color 0.2s;
+}
+.blog-card:hover .title {
+  color: #5f7a9a;
+}
+
+.blog-card .btn-primary {
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ffc8dd, #ffafcc) !important;
+  border: 0;
+  font-weight: 700;
+  transition: opacity 0.2s, transform 0.15s;
+}
+.blog-card .btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* ── Category pills (blog index) ── */
+.btn.rounded-pill {
+  transition: all 0.2s;
+}
+.btn-outline-secondary.rounded-pill {
+  border-color: #e8dde8;
+  color: #70758c;
+}
+.btn-outline-secondary.rounded-pill:hover {
+  border-color: #a2d2ff;
+  background: #eaf8fc;
+  color: #3f3a5f;
+}
+
+/* ── Author box enhancement ── */
+.author-box {
+  position: relative;
+  overflow: hidden;
+}
+.author-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #91d7ec, #ff9fc5);
+}
+.author-box img {
+  border: 3px solid white;
+  box-shadow: 0 4px 14px rgba(77, 69, 102, 0.12);
+}
+
+/* ── Comment box enhancement ── */
+.comment-box {
+  position: relative;
+  transition: box-shadow 0.2s;
+}
+.comment-box:hover {
+  box-shadow: 0 8px 24px rgba(77, 69, 102, 0.1);
+}
+
+.comment-reply {
+  background: linear-gradient(135deg, #f8f9fa, #fff8f0);
+  border-left-color: #ff9fc5;
+}
+
+/* ── Article content enhancement ── */
+.article-content {
+  line-height: 1.9;
+}
+.article-content h2 {
+  position: relative;
+  display: inline-block;
+}
+.article-content h2::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, #91d7ec, #ff9fc5);
+  border-radius: 999px;
+  margin-top: 8px;
+}
+.article-content blockquote {
+  border-left-color: #ff9fc5;
+  background: linear-gradient(135deg, #fff0f6, #f8f0f8);
+}
+
+@media (max-width: 767.98px) {
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -53,7 +53,7 @@
                 @error('publish_at') <div class="invalid-feedback">{{ $message }}</div> @enderror
                 <div class="form-text">Leave blank to publish immediately.</div>
             </div>
-            <button type="submit" class="btn text-white" style="background-color: var(--sky-blue);">
+            <button type="submit" class="btn btn-primary">
                 <i class="bi bi-send"></i> Create Announcement
             </button>
         </form>

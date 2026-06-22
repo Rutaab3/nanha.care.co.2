@@ -24,7 +24,7 @@
         <div class="card border-0 shadow-sm">
             <div class="card-header bg-white border-bottom-0 pt-3 d-flex justify-content-between align-items-center">
                 <h5 class="fw-bold mb-0">Recent Flagged Items</h5>
-                <a href="{{ route('moderator.flagged.index') }}" class="btn btn-sm text-white" style="background-color: var(--sky-blue);">View All</a>
+                <a href="{{ route('moderator.flagged.index') }}" class="btn btn-sm btn-primary">View All</a>
             </div>
             <div class="card-body p-0">
                 <div class="table-responsive">
@@ -60,7 +60,7 @@
         <div class="card border-0 shadow-sm">
             <div class="card-header bg-white border-bottom-0 pt-3 d-flex justify-content-between align-items-center">
                 <h5 class="fw-bold mb-0">Recent User Reports</h5>
-                <a href="{{ route('moderator.reports.index') }}" class="btn btn-sm text-white" style="background-color: var(--sky-blue);">View All</a>
+                <a href="{{ route('moderator.reports.index') }}" class="btn btn-sm btn-primary">View All</a>
             </div>
             <div class="card-body p-0">
                 <div class="table-responsive">

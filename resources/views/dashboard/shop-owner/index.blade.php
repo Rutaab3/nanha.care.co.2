@@ -53,7 +53,7 @@
                 <h5 class="fw-bold mb-0">Quick Links</h5>
             </div>
             <div class="card-body d-flex flex-column gap-3">
-                <a href="{{ route('shop-owner.products.create') }}" class="btn btn-lg text-white d-flex align-items-center gap-2" style="background-color: var(--sky-blue);">
+                <a href="{{ route('shop-owner.products.create') }}" class="btn btn-primary btn-lg d-flex align-items-center gap-2">
                     <i class="bi bi-plus-circle"></i> Add Product
                 </a>
                 <a href="{{ route('shop-owner.orders.index') }}" class="btn btn-lg btn-outline-secondary d-flex align-items-center gap-2">

@@ -48,7 +48,7 @@
                 </div>
             @endforeach
 
-            <button type="submit" class="btn text-white" style="background-color: var(--sky-blue);">
+            <button type="submit" class="btn btn-primary">
                 <i class="bi bi-save"></i> Save Settings
             </button>
         </form>

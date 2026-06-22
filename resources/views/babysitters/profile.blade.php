@@ -19,14 +19,14 @@
                         </div>
                         @endif
                     </div>
-                    <h4 class="fw-bold mb-0" style="color: var(--dark-text);">{{ $babysitter->user->name ?? 'Babysitter' }}</h4>
+                    <h4 class="fw-bold mb-0 text-navy">{{ $babysitter->user->name ?? 'Babysitter' }}</h4>
                     <p class="text-muted mb-2">
                         <i class="bi bi-geo-alt me-1"></i> {{ $babysitter->city ?? 'N/A' }}
                     </p>
-                    <span class="badge rounded-pill px-3 py-2 mb-3" style="background-color: var(--mint-green); color: var(--white);">
+                    <span class="badge rounded-pill px-3 py-2 mb-3 bg-mint-green text-on-gradient">
                         NC-{{ $babysitter->city ?? 'N/A' }}-{{ $babysitter->id }}
                     </span>
-                    <h5 class="fw-bold mt-2" style="color: var(--dark-text);">
+                    <h5 class="fw-bold mt-2 text-navy">
                         Rs. {{ number_format($babysitter->hourly_rate, 0) }}/hr
                     </h5>
                 </div>
@@ -38,15 +38,15 @@
                 <div class="card-body p-4">
                     <div class="row text-center g-3">
                         <div class="col-6 col-md-3">
-                            <h5 class="fw-bold mb-0" style="color: var(--dark-text);">{{ $babysitter->experience_years ?? 'N/A' }}</h5>
+                            <h5 class="fw-bold mb-0 text-navy">{{ $babysitter->experience_years ?? 'N/A' }}</h5>
                             <small class="text-muted">Years Exp.</small>
                         </div>
                         <div class="col-6 col-md-3">
-                            <h5 class="fw-bold mb-0" style="color: var(--dark-text);">{{ $babysitter->bookings_count ?? 0 }}</h5>
+                            <h5 class="fw-bold mb-0 text-navy">{{ $babysitter->bookings_count ?? 0 }}</h5>
                             <small class="text-muted">Bookings</small>
                         </div>
                         <div class="col-6 col-md-3">
-                            <h5 class="fw-bold mb-0" style="color: var(--dark-text);">
+                            <h5 class="fw-bold mb-0 text-navy">
                                 @if($babysitter->response_time)
                                 {{ $babysitter->response_time }}
                                 @else
@@ -56,7 +56,7 @@
                             <small class="text-muted">Response Time</small>
                         </div>
                         <div class="col-6 col-md-3">
-                            <h5 class="fw-bold mb-0" style="color: var(--dark-text);">
+                            <h5 class="fw-bold mb-0 text-navy">
                                 @if($babysitter->created_at)
                                 {{ $babysitter->created_at->format('M Y') }}
                                 @else
@@ -71,18 +71,18 @@
 
             <div class="card shadow-sm border-0 mb-4" style="background-color: var(--off-white);">
                 <div class="card-body p-4">
-                    <h5 class="fw-bold mb-3" style="color: var(--dark-text);">About</h5>
-                    <p style="color: var(--dark-text);">{{ $babysitter->experience ?? 'No description provided.' }}</p>
+                    <h5 class="fw-bold mb-3 text-navy">About</h5>
+                    <p class="text-dark">{{ $babysitter->experience ?? 'No description provided.' }}</p>
                 </div>
             </div>
 
             @if($babysitter->specializations && count($babysitter->specializations) > 0)
             <div class="card shadow-sm border-0 mb-4" style="background-color: var(--off-white);">
                 <div class="card-body p-4">
-                    <h5 class="fw-bold mb-3" style="color: var(--dark-text);">Specializations</h5>
+                    <h5 class="fw-bold mb-3 text-navy">Specializations</h5>
                     <div class="d-flex flex-wrap gap-2">
                         @foreach($babysitter->specializations as $spec)
-                        <span class="badge rounded-pill px-3 py-2" style="background-color: var(--sky-blue); color: var(--white);">
+                        <span class="badge rounded-pill px-3 py-2 bg-sky-blue text-on-gradient">
                             {{ $spec->name ?? $spec }}
                         </span>
                         @endforeach
@@ -93,14 +93,14 @@
 
             <div class="card shadow-sm border-0 mb-4" style="background-color: var(--off-white);">
                 <div class="card-body p-4">
-                    <h5 class="fw-bold mb-3" style="color: var(--dark-text);">Reviews from Parents</h5>
+                    <h5 class="fw-bold mb-3 text-navy">Reviews from Parents</h5>
                     @php $reviews = $babysitter->reviews ?? $reviews ?? collect(); @endphp
                     @if($reviews->count() > 0)
                         @foreach($reviews as $review)
                         <div class="border-bottom pb-3 mb-3">
                             <div class="d-flex justify-content-between align-items-start">
                                 <div>
-                                    <h6 class="fw-semibold mb-0" style="color: var(--dark-text);">{{ $review->reviewer_name ?? 'Anonymous' }}</h6>
+                                    <h6 class="fw-semibold mb-0 text-navy">{{ $review->reviewer_name ?? 'Anonymous' }}</h6>
                                     <small class="text-muted">{{ $review->created_at ? $review->created_at->format('M d, Y') : '' }}</small>
                                 </div>
                                 @include('partials._star-rating', ['rating' => $review->rating])
@@ -118,13 +118,13 @@
 </div>
 
 <div class="d-md-none fixed-bottom p-3" style="background-color: var(--white); border-top: 1px solid #dee2e6;">
-    <a href="#" class="btn w-100 py-2" style="background-color: var(--mint-green); color: var(--white); font-weight: 600;">
+    <a href="#" class="btn btn-primary w-100 py-2" style="font-weight: 600;">
         <i class="bi bi-calendar-check me-1"></i> Book Now
     </a>
 </div>
 
 <div class="d-none d-md-block text-center mt-3 mb-5">
-    <a href="#" class="btn btn-lg px-5 py-2" style="background-color: var(--mint-green); color: var(--white); font-weight: 600;">
+    <a href="#" class="btn btn-primary btn-lg px-5 py-2" style="font-weight: 600;">
         <i class="bi bi-calendar-check me-1"></i> Book Now
     </a>
 </div>

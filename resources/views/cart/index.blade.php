@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container py-4">
-    <h2 class="fw-bold mb-4" style="color: var(--dark-text);"><i class="bi bi-cart"></i> Shopping Cart</h2>
+    <h2 class="fw-bold mb-4 text-navy"><i class="bi bi-cart"></i> Shopping Cart</h2>
 
     @if(count($cart) > 0)
     <div class="row g-4">
@@ -59,21 +59,21 @@
         <div class="col-lg-4">
             <div class="card shadow-sm border-0" style="background-color: var(--off-white);">
                 <div class="card-body">
-                    <h5 class="fw-bold mb-4" style="color: var(--dark-text);">Cart Summary</h5>
+                    <h5 class="fw-bold mb-4 text-navy">Cart Summary</h5>
                     <div class="d-flex justify-content-between mb-2">
                         <span class="text-muted">Subtotal</span>
                         <span class="fw-semibold">Rs. {{ number_format($subtotal) }}</span>
                     </div>
                     <div class="d-flex justify-content-between mb-2">
                         <span class="text-muted">Shipping</span>
-                        <span class="fw-semibold" style="color: var(--mint-green);">Free</span>
+                        <span class="fw-semibold text-mint-green">Free</span>
                     </div>
                     <hr>
                     <div class="d-flex justify-content-between mb-4">
                         <span class="fw-bold">Total</span>
-                        <span class="fw-bold fs-5" style="color: var(--dark-text);">Rs. {{ number_format($subtotal) }}</span>
+                        <span class="fw-bold fs-5 text-navy">Rs. {{ number_format($subtotal) }}</span>
                     </div>
-                    <a href="{{ route('checkout') }}" class="btn w-100 py-2 fw-semibold" style="background-color: var(--mint-green); color: var(--dark-text);">
+                    <a href="{{ route('checkout') }}" class="btn btn-primary w-100 py-2 fw-semibold">
                         <i class="bi bi-credit-card"></i> Proceed to Checkout
                     </a>
                 </div>
@@ -82,8 +82,8 @@
     </div>
     @else
     <div class="text-center py-5">
-        <i class="bi bi-cart-x" style="font-size: 5rem; color: var(--sky-blue);"></i>
-        <h4 class="mt-3 fw-semibold" style="color: var(--dark-text);">Your cart is empty</h4>
+        <i class="bi bi-cart-x text-sky-blue" style="font-size: 5rem;"></i>
+        <h4 class="mt-3 fw-semibold text-navy">Your cart is empty</h4>
         <p class="text-muted">Looks like you haven't added anything yet.</p>
         <a href="{{ route('marketplace.index') }}" class="btn btn-primary btn-lg"><i class="bi bi-shop"></i> Browse Products</a>
     </div>

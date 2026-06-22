@@ -6,7 +6,7 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2 class="fw-bold">User Details</h2>
     <div class="d-flex gap-2">
-        <a href="{{ route('admin.users.edit', $user->id) }}" class="btn text-white" style="background-color: var(--sky-blue);">
+        <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-primary">
             <i class="bi bi-pencil"></i> Edit
         </a>
         <a href="{{ route('admin.users.index') }}" class="btn btn-outline-secondary">

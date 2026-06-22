@@ -1,9 +1,96 @@
 .babysitter-card {
   border-radius: var(--radius);
   overflow: hidden;
-  transition: transform 0.2s;
+  transition: transform 0.25s, box-shadow 0.25s;
+  position: relative;
+}
+.babysitter-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #91d7ec, #ff9fc5);
+  z-index: 1;
+}
+.babysitter-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 45px rgba(77, 69, 102, 0.14) !important;
 }
 
-.babysitter-card:hover {
-  transform: translateY(-4px);
+.babysitter-card .rounded-circle {
+  border: 3px solid white;
+  box-shadow: 0 4px 14px rgba(77, 69, 102, 0.12);
+  transition: transform 0.2s;
+}
+.babysitter-card:hover .rounded-circle {
+  transform: scale(1.05);
+}
+
+.babysitter-card .badge.rounded-pill {
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.babysitter-card .star-rating {
+  color: #ffc928 !important;
+  font-size: 0.9rem;
+}
+
+.babysitter-card .btn-primary {
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ffc8dd, #ffafcc) !important;
+  border: 0;
+  font-weight: 700;
+  transition: opacity 0.2s, transform 0.15s;
+}
+.babysitter-card .btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.babysitter-card .card-title {
+  font-size: 1.1rem;
+}
+
+.babysitter-card .specialization-badge {
+  background: linear-gradient(135deg, #eaf8fc, #d4f0f8) !important;
+  color: #3d7d97 !important;
+  border: 0;
+  font-weight: 500;
+}
+
+/* ── Filter/search card enhancement ── */
+.card.bg-off-white {
+  background: linear-gradient(135deg, #fff8f0, #fbfcff) !important;
+  border: 1px solid rgba(255, 255, 255, 0.9) !important;
+  border-radius: 8px;
+}
+
+/* ── Babysitter profile page ── */
+.babysitter-profile-header {
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255, 159, 197, 0.2), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(145, 215, 236, 0.25), transparent 40%),
+    linear-gradient(135deg, #fff8f0, #fbfcff);
+  border-radius: 12px;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+.babysitter-profile-header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #91d7ec, #ff9fc5);
+}
+
+@media (max-width: 767.98px) {
+  .babysitter-profile-header {
+    padding: 24px;
+  }
 }

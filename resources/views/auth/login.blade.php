@@ -4,12 +4,12 @@
 
 @section('content')
 
-<div class="min-vh-100 d-flex align-items-center justify-content-center py-5" style="background-color: var(--off-white);">
+<div class="min-vh-100 d-flex align-items-center justify-content-center py-5">
     <div class="card border-0 shadow-sm p-4" style="max-width: 450px; width: 100%;">
         <div class="card-body">
             <div class="text-center mb-4">
-                <i class="bi bi-heart-pulse-fill display-4" style="color: var(--baby-pink);"></i>
-                <h4 class="fw-bold mt-2" style="color: var(--sky-blue);">NanhaCare</h4>
+                <i class="bi bi-heart-pulse-fill display-4 text-coral"></i>
+                <h4 class="fw-bold mt-2 text-sky-blue">NanhaCare</h4>
             </div>
             <form method="POST" action="{{ route('auth.login') }}">
                 @csrf
@@ -32,12 +32,12 @@
                     <label class="form-check-label" for="remember">Remember Me</label>
                 </div>
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <a href="{{ route('auth.forgot-password') }}" class="text-decoration-none small" style="color: var(--sky-blue);">Forgot Password?</a>
+                    <a href="{{ route('auth.forgot-password') }}" class="text-decoration-none small text-sky-blue">Forgot Password?</a>
                 </div>
-                <button type="submit" class="btn w-100 py-2 fw-bold" style="background-color: var(--sky-blue); color: white;">Login</button>
+                <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">Login</button>
             </form>
             <p class="text-center mt-3 mb-0 small">
-                Don't have an account? <a href="{{ route('auth.register') }}" class="text-decoration-none fw-semibold" style="color: var(--sky-blue);">Register</a>
+                Don't have an account? <a href="{{ route('auth.register') }}" class="text-decoration-none fw-semibold text-sky-blue">Register</a>
             </p>
         </div>
     </div>

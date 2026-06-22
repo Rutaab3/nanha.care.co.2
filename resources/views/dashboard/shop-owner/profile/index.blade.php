@@ -93,7 +93,7 @@
                 @error('return_policy') <div class="invalid-feedback">{{ $message }}</div> @enderror
             </div>
 
-            <button type="submit" class="btn text-white px-4" style="background-color: var(--sky-blue);">
+            <button type="submit" class="btn btn-primary px-4">
                 <i class="bi bi-check-circle"></i> Save
             </button>
         </form>

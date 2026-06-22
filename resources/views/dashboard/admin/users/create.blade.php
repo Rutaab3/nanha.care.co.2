@@ -68,7 +68,7 @@
                 </select>
                 @error('status') <div class="invalid-feedback">{{ $message }}</div> @enderror
             </div>
-            <button type="submit" class="btn text-white" style="background-color: var(--sky-blue);">
+            <button type="submit" class="btn btn-primary">
                 <i class="bi bi-person-plus"></i> Create Account
             </button>
         </form>

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container py-4">
-    <h2 class="fw-bold mb-4" style="color: var(--dark-text);"><i class="bi bi-credit-card"></i> Checkout</h2>
+    <h2 class="fw-bold mb-4 text-navy"><i class="bi bi-credit-card"></i> Checkout</h2>
 
     <form method="POST" action="{{ route('checkout') }}">
         @csrf
@@ -10,7 +10,7 @@
             <div class="col-md-7">
                 <div class="card shadow-sm border-0 mb-4">
                     <div class="card-body">
-                        <h5 class="fw-bold mb-3" style="color: var(--dark-text);">Shipping Address</h5>
+                        <h5 class="fw-bold mb-3 text-navy">Shipping Address</h5>
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <label class="form-label">Full Name</label>
@@ -65,7 +65,7 @@
             <div class="col-md-5">
                 <div class="card shadow-sm border-0 mb-4">
                     <div class="card-body">
-                        <h5 class="fw-bold mb-3" style="color: var(--dark-text);">Order Summary</h5>
+                        <h5 class="fw-bold mb-3 text-navy">Order Summary</h5>
                         @foreach($cart as $item)
                         <div class="d-flex align-items-center gap-3 mb-3">
                             <img src="{{ $item['image'] ? asset('storage/' . $item['image']) : 'https://placehold.co/60x60?text=Product' }}" alt="{{ $item['name'] }}" style="width: 50px; height: 50px; object-fit: cover;" class="rounded">
@@ -83,15 +83,15 @@
                         </div>
                         <div class="d-flex justify-content-between mb-2">
                             <span class="text-muted">Shipping</span>
-                            <span class="fw-semibold" style="color: var(--mint-green);">Free</span>
+                            <span class="fw-semibold text-mint-green">Free</span>
                         </div>
                         <hr>
                         <div class="d-flex justify-content-between mb-4">
                             <span class="fw-bold">Total</span>
-                            <span class="fw-bold fs-5" style="color: var(--dark-text);">Rs. {{ number_format($total) }}</span>
+                            <span class="fw-bold fs-5 text-navy">Rs. {{ number_format($total) }}</span>
                         </div>
 
-                        <h6 class="fw-bold mb-3" style="color: var(--dark-text);">Payment Method</h6>
+                        <h6 class="fw-bold mb-3 text-navy">Payment Method</h6>
                         <div class="form-check mb-2">
                             <input class="form-check-input" type="radio" name="payment_method" id="cod" value="cod" checked>
                             <label class="form-check-label" for="cod">Cash on Delivery</label>
@@ -101,7 +101,7 @@
                             <label class="form-check-label" for="jazzcash">JazzCash / Easypaisa</label>
                         </div>
 
-                        <button type="submit" class="btn w-100 py-2 fw-semibold" style="background-color: var(--mint-green); color: var(--dark-text);">
+                        <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold">
                             <i class="bi bi-check-circle"></i> Place Order
                         </button>
                     </div>

@@ -4,12 +4,12 @@
 
 @section('content')
 
-<div class="min-vh-100 d-flex align-items-center justify-content-center py-5" style="background-color: var(--off-white);">
+<div class="min-vh-100 d-flex align-items-center justify-content-center py-5">
     <div class="card border-0 shadow-sm p-4" style="max-width: 500px; width: 100%;">
         <div class="card-body">
             <div class="text-center mb-4">
-                <i class="bi bi-heart-pulse-fill display-4" style="color: var(--baby-pink);"></i>
-                <h4 class="fw-bold mt-2" style="color: var(--sky-blue);">Create Account</h4>
+                <i class="bi bi-heart-pulse-fill display-4 text-coral"></i>
+                <h4 class="fw-bold mt-2 text-sky-blue">Create Account</h4>
             </div>
             <form method="POST" action="{{ route('auth.register') }}">
                 @csrf
@@ -51,10 +51,10 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
-                <button type="submit" class="btn w-100 py-2 fw-bold" style="background-color: var(--sky-blue); color: white;">Register</button>
+                <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">Register</button>
             </form>
             <p class="text-center mt-3 mb-0 small">
-                Already have an account? <a href="{{ route('auth.login') }}" class="text-decoration-none fw-semibold" style="color: var(--sky-blue);">Login</a>
+                Already have an account? <a href="{{ route('auth.login') }}" class="text-decoration-none fw-semibold text-sky-blue">Login</a>
             </p>
         </div>
     </div>

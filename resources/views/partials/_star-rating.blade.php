@@ -4,7 +4,7 @@
     $half = ($rating - $full) >= 0.5 ? 1 : 0;
     $empty = 5 - $full - $half;
 @endphp
-<div class="star-rating d-inline-flex align-items-center gap-1" style="color: var(--sunshine-yellow);">
+<div class="star-rating d-inline-flex align-items-center gap-1 text-sunshine-yellow">
     @for($i = 0; $i < $full; $i++)
         <i class="bi bi-star-fill"></i>
     @endfor

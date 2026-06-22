@@ -4,11 +4,11 @@
 
 @section('content')
 
-<div class="min-vh-100 d-flex align-items-center justify-content-center py-5" style="background-color: var(--off-white);">
+<div class="min-vh-100 d-flex align-items-center justify-content-center py-5">
     <div class="card border-0 shadow-sm p-4" style="max-width: 450px; width: 100%;">
         <div class="card-body">
             <div class="text-center mb-4">
-                <h4 class="fw-bold" style="color: var(--dark-text);">Forgot Password?</h4>
+                <h4 class="fw-bold text-dark">Forgot Password?</h4>
                 <p class="text-muted small">Enter your email and we'll send you a reset link</p>
             </div>
             <form method="POST" action="{{ route('auth.forgot-password') }}">
@@ -20,10 +20,10 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
-                <button type="submit" class="btn w-100 py-2 fw-bold" style="background-color: var(--sky-blue); color: white;">Send Reset Link</button>
+                <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">Send Reset Link</button>
             </form>
             <p class="text-center mt-3 mb-0 small">
-                <a href="{{ route('auth.login') }}" class="text-decoration-none" style="color: var(--sky-blue);"><i class="bi bi-arrow-left me-1"></i>Back to Login</a>
+                <a href="{{ route('auth.login') }}" class="text-decoration-none text-sky-blue"><i class="bi bi-arrow-left me-1"></i>Back to Login</a>
             </p>
         </div>
     </div>

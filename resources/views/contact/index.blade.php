@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid py-5" style="background: linear-gradient(135deg, var(--sky-blue), var(--mint-green));">
+<div class="container-fluid py-5 bg-gradient-hero text-on-gradient">
     <div class="container text-center">
-        <h1 class="display-4 fw-bold" style="color: var(--dark-text);">Contact Us</h1>
-        <p class="lead mb-0" style="color: var(--dark-text);">We'd love to hear from you. Get in touch with our team.</p>
+        <h1 class="display-4 fw-bold text-on-gradient">Contact Us</h1>
+        <p class="lead mb-0 text-on-gradient">We'd love to hear from you. Get in touch with our team.</p>
     </div>
 </div>
 
@@ -13,7 +13,7 @@
         <div class="col-md-6">
             <div class="card shadow-sm border-0">
                 <div class="card-body p-4">
-                    <h4 class="fw-bold mb-4" style="color: var(--dark-text);">Send us a Message</h4>
+                    <h4 class="fw-bold mb-4 text-navy">Send us a Message</h4>
                     <form method="POST" action="{{ route('contact.send') }}">
                         @csrf
                         <div class="mb-3">
@@ -41,33 +41,33 @@
         <div class="col-md-6">
             <div class="card shadow-sm border-0 h-100">
                 <div class="card-body p-4">
-                    <h4 class="fw-bold mb-4" style="color: var(--dark-text);">Contact Information</h4>
+                    <h4 class="fw-bold mb-4 text-navy">Contact Information</h4>
                     <div class="d-flex flex-column gap-3">
                         <div class="d-flex align-items-center gap-3">
-                            <div class="rounded-circle d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; background-color: var(--sky-blue); color: var(--white);">
+                            <div class="rounded-circle d-flex align-items-center justify-content-center bg-sky-blue text-on-gradient" style="width: 45px; height: 45px;">
                                 <i class="bi bi-envelope"></i>
                             </div>
                             <div>
                                 <h6 class="mb-0 fw-semibold">Email</h6>
-                                <a href="mailto:support@nanhacare.com" class="text-decoration-none" style="color: var(--dark-text);">support@nanhacare.com</a>
+                                <a href="mailto:support@nanhacare.com" class="text-decoration-none text-dark">support@nanhacare.com</a>
                             </div>
                         </div>
                         <div class="d-flex align-items-center gap-3">
-                            <div class="rounded-circle d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; background-color: var(--baby-pink); color: var(--white);">
+                            <div class="rounded-circle d-flex align-items-center justify-content-center bg-coral text-on-gradient" style="width: 45px; height: 45px;">
                                 <i class="bi bi-telephone"></i>
                             </div>
                             <div>
                                 <h6 class="mb-0 fw-semibold">Phone</h6>
-                                <a href="tel:+921234567890" class="text-decoration-none" style="color: var(--dark-text);">+92 123 4567890</a>
+                                <a href="tel:+921234567890" class="text-decoration-none text-dark">+92 123 4567890</a>
                             </div>
                         </div>
                         <div class="d-flex align-items-center gap-3">
-                            <div class="rounded-circle d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; background-color: var(--mint-green); color: var(--white);">
+                            <div class="rounded-circle d-flex align-items-center justify-content-center bg-mint-green text-on-gradient" style="width: 45px; height: 45px;">
                                 <i class="bi bi-geo-alt"></i>
                             </div>
                             <div>
                                 <h6 class="mb-0 fw-semibold">Address</h6>
-                                <p class="mb-0" style="color: var(--dark-text);">Lahore, Pakistan</p>
+                                <p class="mb-0 text-dark">Lahore, Pakistan</p>
                             </div>
                         </div>
                         <div class="d-flex align-items-center gap-3">
@@ -76,7 +76,7 @@
                             </div>
                             <div>
                                 <h6 class="mb-0 fw-semibold">Working Hours</h6>
-                                <p class="mb-0" style="color: var(--dark-text);">Mon-Fri 9AM - 6PM</p>
+                                <p class="mb-0 text-dark">Mon-Fri 9AM - 6PM</p>
                             </div>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
     </div>
 
     <div class="mt-5">
-        <h4 class="fw-bold mb-4 text-center" style="color: var(--dark-text);">Frequently Asked Questions</h4>
+        <h4 class="fw-bold mb-4 text-center text-navy">Frequently Asked Questions</h4>
         <div class="accordion" id="faqAccordion">
             <div class="accordion-item">
                 <h2 class="accordion-header">

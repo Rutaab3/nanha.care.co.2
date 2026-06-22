@@ -73,7 +73,7 @@
                 <h5 class="fw-bold mb-0">Quick Actions</h5>
             </div>
             <div class="card-body">
-                <a href="{{ route('doctor.posts.create') }}" class="btn text-white w-100 mb-2" style="background-color: var(--sky-blue);">
+                <a href="{{ route('doctor.posts.create') }}" class="btn btn-primary w-100 mb-2">
                     <i class="bi bi-pencil-square"></i> Write New Post
                 </a>
                 <a href="{{ route('doctor.comments.index') }}" class="btn btn-outline-secondary w-100 mb-2">

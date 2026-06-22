@@ -9,7 +9,7 @@
 @section('content')
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2 class="fw-bold">Reports & Analytics</h2>
-    <a href="{{ route('admin.reports.export') }}" class="btn text-white" style="background-color: var(--sky-blue);">
+    <a href="{{ route('admin.reports.export') }}" class="btn btn-primary">
         <i class="bi bi-download"></i> Export CSV
     </a>
 </div>

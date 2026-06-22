@@ -66,25 +66,13 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ===== Quick AJAX Navigation ===== */
 ;(() => {
   const contentEl = document.getElementById('pageContent')
-  const skeletonEl = document.getElementById('skeletonLoader')
-  if (!contentEl || !skeletonEl) return
+  if (!contentEl) return
 
   let isLoading = false
-
-  function showSkeleton() {
-    contentEl.classList.add('d-none')
-    skeletonEl.classList.remove('d-none')
-  }
-
-  function showContent() {
-    skeletonEl.classList.add('d-none')
-    contentEl.classList.remove('d-none')
-  }
 
   async function loadPage(url) {
     if (isLoading) return
     isLoading = true
-    showSkeleton()
 
     try {
       const res = await fetch(url, { headers: { 'X-Requested-With': 'XMLHttpRequest' } })
@@ -103,7 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
       window.location.href = url
     }
 
-    showContent()
     isLoading = false
   }
 

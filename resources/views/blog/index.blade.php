@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid py-5" style="background: linear-gradient(135deg, var(--sky-blue), var(--mint-green));">
+<div class="container-fluid py-5 bg-gradient-hero text-on-gradient">
     <div class="container text-center">
-        <h1 class="display-4 fw-bold" style="color: var(--dark-text);">NanhaCare Blog</h1>
-        <p class="lead mb-0" style="color: var(--dark-text);">Expert advice on childcare, parenting, and child health from Pakistan's top pediatricians</p>
+        <h1 class="display-4 fw-bold text-on-gradient">NanhaCare Blog</h1>
+        <p class="lead mb-0 text-on-gradient">Expert advice on childcare, parenting, and child health from Pakistan's top pediatricians</p>
     </div>
 </div>
 
@@ -25,12 +25,12 @@
             <div class="card h-100 shadow-sm border-0">
                 <img src="{{ $post->cover_image ? asset('storage/' . $post->cover_image) : 'https://placehold.co/600x400?text=Blog' }}" alt="{{ $post->title }}" class="card-img-top rounded-top" style="height: 200px; object-fit: cover;">
                 <div class="card-body d-flex flex-column">
-                    <span class="badge rounded-pill px-3 py-1 align-self-start mb-2" style="background-color: var(--mint-green); color: var(--dark-text);">{{ $post->category }}</span>
-                    <h5 class="fw-bold" style="color: var(--dark-text);">{{ $post->title }}</h5>
+                    <span class="badge rounded-pill px-3 py-1 align-self-start mb-2 bg-mint-green text-on-gradient">{{ $post->category }}</span>
+                    <h5 class="fw-bold text-navy">{{ $post->title }}</h5>
                     <p class="text-muted flex-grow-1" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">{{ $post->excerpt }}</p>
                     <div class="d-flex justify-content-between align-items-center mt-auto">
                         <small class="text-muted"><i class="bi bi-person"></i> {{ $post->doctor->name ?? 'Dr. Expert' }} &middot; {{ optional($post->published_at)->format('M d, Y') ?? 'N/A' }}</small>
-                        <a href="{{ route('blog.detail', $post->slug) }}" class="btn btn-sm" style="background-color: var(--sky-blue); color: var(--white);">Read More</a>
+                        <a href="{{ route('blog.detail', $post->slug) }}" class="btn btn-sm btn-primary">Read More</a>
                     </div>
                 </div>
             </div>
@@ -42,8 +42,8 @@
     </div>
     @else
     <div class="text-center py-5">
-        <i class="bi bi-newspaper" style="font-size: 4rem; color: var(--sky-blue);"></i>
-        <h4 class="mt-3 fw-semibold" style="color: var(--dark-text);">No posts yet</h4>
+        <i class="bi bi-newspaper text-sky-blue" style="font-size: 4rem;"></i>
+        <h4 class="mt-3 fw-semibold text-navy">No posts yet</h4>
         <p class="text-muted">Check back soon for new articles.</p>
     </div>
     @endif
