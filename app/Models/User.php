@@ -34,6 +34,7 @@ class User extends Authenticatable
     protected $casts = [
         'status' => UserStatus::class,
         'password' => 'hashed',
+        'email_verified_at' => 'datetime',
     ];
 
     public function babysitterProfile()

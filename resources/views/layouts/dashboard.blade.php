@@ -58,11 +58,8 @@
                 @include('components.notification-bell')
                 <div class="dropdown">
                     <button class="btn dropdown-toggle d-flex align-items-center gap-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bi bi-person-circle fs-5"></i>
+                        <img src="{{ auth()->user()->avatar ? asset('storage/' . auth()->user()->avatar) : 'https://ui-avatars.com/api/?name='.urlencode(auth()->user()->name).'&background=87CEEB&color=2D3436' }}" class="rounded-circle" width="28" height="28" alt="Avatar">
                         <span class="d-none d-md-inline">{{ auth()->user()->name }}</span>
-                        <span class="badge rounded-pill bg-mint-green text-on-gradient" style="font-size: 0.7rem;">
-                            {{ ucfirst(str_replace('_', ' ', auth()->user()->getRoleNames()[0] ?? 'User')) }}
-                        </span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li><a class="dropdown-item" href="{{ route('home') }}"><i class="bi bi-house me-2"></i>Home</a></li>

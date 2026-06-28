@@ -14,6 +14,8 @@ class AdminUserSeeder extends Seeder
             [
                 'name' => env('ADMIN_NAME', 'Admin'),
                 'password' => env('ADMIN_PASSWORD', 'admin123'),
+                'phone' => env('ADMIN_PHONE'),
+                'city' => env('ADMIN_CITY'),
                 'status' => 'active',
                 'email_verified_at' => now(),
             ]

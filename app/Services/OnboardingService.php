@@ -61,9 +61,27 @@ class OnboardingService implements IOnboardingService
 
     public function saveDoctor(string $userId, array $data): DoctorProfile
     {
+        $user = User::findOrFail($userId);
+        $userUpdate = [];
+
+        if (isset($data['phone'])) {
+            $userUpdate['phone'] = $data['phone'];
+        }
+        if (isset($data['city'])) {
+            $userUpdate['city'] = $data['city'];
+        }
         if (isset($data['profile_photo'])) {
             $data['profile_photo'] = $this->fileUpload->save($data['profile_photo'], 'doctor-photos');
+            $userUpdate['avatar'] = $data['profile_photo'];
         }
+        if (isset($data['full_name'])) {
+            $userUpdate['name'] = $data['full_name'];
+        }
+
+        if (!empty($userUpdate)) {
+            $user->update($userUpdate);
+        }
+
         if (isset($data['clinic_name'])) {
             $data['hospital'] = $data['clinic_name'];
             unset($data['clinic_name']);

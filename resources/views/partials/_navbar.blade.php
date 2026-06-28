@@ -22,20 +22,16 @@
                 </li>
             </ul>
             <div class="d-flex align-items-center gap-2">
-                <a href="{{ route('cart.index') }}" class="btn position-relative btn-sm px-2 text-on-gradient" style="background: none; border: none;">
-                    <i class="bi bi-cart3 fs-5"></i>
-                </a>
                 @guest
                     <a href="{{ route('auth.login') }}" class="btn btn-sm px-3 text-on-gradient" style="border: 1px solid rgba(255,255,255,0.6); background: transparent;">Login</a>
-                    <a href="{{ route('auth.register') }}" class="btn btn-light btn-sm px-3 text-navy fw-semibold">Register</a>
                 @else
+                    <a href="{{ route('cart.index') }}" class="btn position-relative btn-sm px-2 text-on-gradient" style="background: none; border: none;">
+                        <i class="bi bi-cart3 fs-5"></i>
+                    </a>
                     <div class="dropdown">
                         <button class="btn dropdown-toggle d-flex align-items-center gap-2 text-on-gradient" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25);">
-                            <i class="bi bi-person-circle"></i>
+                            <img src="{{ auth()->user()->avatar ? asset('storage/' . auth()->user()->avatar) : 'https://ui-avatars.com/api/?name='.urlencode(auth()->user()->name).'&background=87CEEB&color=2D3436' }}" class="rounded-circle" width="28" height="28" alt="Avatar">
                             <span class="d-none d-md-inline">{{ auth()->user()->name }}</span>
-                            <span class="badge rounded-pill bg-navy text-on-gradient" style="font-size: 0.65rem;">
-                                {{ ucfirst(str_replace('_', ' ', auth()->user()->getRoleNames()[0] ?? 'User')) }}
-                            </span>
                         </button>
                         @php
                             $role = auth()->user()->getRoleNames()[0] ?? 'parent';
